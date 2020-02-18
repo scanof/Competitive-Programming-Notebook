@@ -25,24 +25,43 @@ const double PI = atan(1)*4;
 const int MAXN = 1e5+20;
 const double EPS= 1e-10;
 
-int m[MAXN][3];
-int dp[MAXN][3];
+int n, W;
+ll dp[MAXN][110];
+ll V;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    cout<< setprecision(2)<< fixed;
-    int n;
-    cin>> n;
+    cin>> n >> W;
+
+    pair<int, ll> pare[n];
     forn(i,n){
-        cin>> m[i][0]>> m[i][1]>> m[i][2];
+        ll a; int b;
+        cin>> a>> b;
+        pare[i+1]= make_pair(b,a);
+        V+= b;
     }
-    dp[0][0]= m[0][0];
-    dp[0][1]= m[0][1];
-    dp[0][2]= m[0][2];
-    for1(i,n-1){
-        forn(j,3){
-            dp[i][j] = max(dp[i-1][(j+1)%3],dp[i-1][(j+2)%3]) + m[i][j];
+    sort(pare, pare+n);
+    forn(i,V+1){
+        forn(j,n+1){
+            dp[i][j]= 1e11;
         }
     }
-    cout<< max(dp[n-1][0], max(dp[n-1][1], dp[n-1][2]))<<el;
+    for1(j,n){
+        for1(i,V){
+            dp[i][j]= min(dp[i][j], dp[i][j-1]);
+            if(pare[j].fi==i){
+                dp[i][j]=  min(dp[i][j-1], pare[j].se);
+            }else if(i-pare[j].fi>=0 && dp[i- pare[j].fi][j]!=1e11){
+                dp[i][j]=  min(dp[i][j-1], pare[j].se + dp[i-pare[j].fi][j-1]);
+            }
+        }
+    }
+    int valor= 1;
+    for1(i,V){
+        if(dp[i][n] && dp[i][n]<=W ){
+            valor= max(i,valor);
+        }
+    }
+    cout<< valor<<el;
 }
+
