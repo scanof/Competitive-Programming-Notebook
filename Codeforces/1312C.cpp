@@ -43,7 +43,7 @@ int main(){
         ll num= 1;
         vector<ll> pot;
         pot.pb(-1);
-        while(num*k< (limite)){
+        while(num*k<= (limite)){
             num*= k;
             pot.pb(-num);
         }
