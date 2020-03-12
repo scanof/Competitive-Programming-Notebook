@@ -15,13 +15,12 @@ using namespace std;
 
 typedef long long ll;
 typedef long double ld;
-typedef pair<ll,ll> ii;
-typedef vector<ll> vi;
+typedef pair<int,int> ii;
 typedef tuple<int,int,int> ti;
 const double PI = atan(1)*4;
 const int MAXN = 1e5+20;
 
-ll a[MAXN];
+int a[MAXN];
 
 ii combine(ii a, ii b){
     if(a.fi==-1) return b;
@@ -51,7 +50,7 @@ struct segtree{
         build(v<<1|1, mid+1, r);
         t[v] = combine(t[v<<1], t[v<<1|1]);
     }
-    segtree(){}
+
     segtree(int n){
         t = vector<ii>(4*n);
         build(1,0,n-1);
