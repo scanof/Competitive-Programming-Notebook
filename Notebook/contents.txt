@@ -1,0 +1,131 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+
+
+[C++]
+c++/template.cpp	C++ template
+c++/alternativa.cpp	Opcion
+c++/bits.cpp	Bits Manipulation
+c++/random.cpp	Random
+c++/custom_hash.cpp	Custom Hash
+c++/other.cpp	Other
+
+[Strings]
+strings/z_algorithm.cpp	Z's Algorithm
+strings/KMP.cpp	KMP
+strings/hashing.cpp	Hashing
+strings/Manacher.cpp	Manacher Algorithm
+strings/minimum_expression.cpp	Minimum Expression
+strings/trie.cpp	Trie
+strings/suffix_array.cpp	Suffix Array
+strings/aho.cpp	Aho-Corasick
+strings/suffix_automaton.cpp	Suffix Automaton
+strings/palindromic_tree.cpp	Palindromic Tree
+
+[Graph algorithms]
+graph/articulationpointandbridge.cpp	Articulation Points and Bridges
+graph/blockcuttree.cpp	Biconnected Components
+graph/Topo_sort.cpp	Topological Sort
+graph/kosaraju.cpp	Kosaraju: Strongly connected components
+graph/tarjanSCC.cpp	Tarjan: Strongly connected components
+graph/mst_kruskal.cpp	MST Kruskal
+graph/mst_prim.cpp	MST Prim
+graph/dijkstra.cpp	Dijkstra
+graph/Bellmanford.cpp	Bellman-Ford
+graph/spfa.cpp	Shortest Path Faster Algorithm
+graph/floyd_warshall.cpp	Floyd-Warshall
+graph/LCA.cpp	LCA
+graph/LCA_binarylifting.cpp	LCA Binary Lifting
+graph/2sat.cpp	2 SAT
+graph/centroid_decomposition.cpp	Centroid Decomposition
+graph/tree_binarization.cpp	Tree Binarization
+graph/eulerian_path.cpp	Eulerian Path
+
+[Flows]
+flows/edmons_karp.cpp	Edmons-Karp
+flows/dinic.cpp	Dinic
+flows/pushrelabel.cpp	Push-Relabel
+flows/konig.cpp	Konig
+flows/maxbipmatching.cpp	MCBM Augmenting Algorithm
+flows/hungarian.cpp	Hungarian Algorithm
+flows/min_cost_max_flow.cpp	Min-Cost Max-Flow Algorithm
+flows/min_cost_max_flow_marcos.cpp	Min-Cost Max-Flow Algorithm 2
+flows/blossom.cpp	Blossom
+
+[Data Structures]
+data-structures/unionfind.cpp	Disjoint Set Union
+data-structures/sqrt_decomposition.cpp	SQRT Decomposition
+data-structures/fenwick_tree.cpp	Fenwick Tree
+data-structures/fenwick_tree2d.cpp	Fenwick Tree 2D
+data-structures/seg_treerecursivo.cpp	Segment Tree
+data-structures/seg_tree_lazy_prop.cpp	ST Lazy Propagation
+data-structures/seg_tree_persistent.cpp	Persistent ST 
+data-structures/seg_tree_2d_iterativo.cpp	Segtree 2D
+#data-structures/seg_tree_iterativo.cpp	Segtree iterativo
+data-structures/RSQ.cpp	RSQ
+data-structures/RMQ.cpp	RMQ
+data-structures/sack.cpp	Sack
+data-structures/hld.cpp	Heavy Light Decomposition
+data-structures/treap.cpp	Treap
+data-structures/implicit_treap.cpp	Implicit Treap
+data-structures/implicit_treap_father.cpp	Implicit Treap Father
+data-structures/ordered_set.cpp	Ordered Set
+data-structures/mos_algo.cpp	Mo's Algorithm
+
+[Math]
+math/sieve_eratosthenes.cpp	Sieve of Eratosthenes
+math/count_primes.cpp	Count primes
+math/segmented_sieve.cpp	Segmented Sieve
+math/mult_polinomios.cpp	Polynomial Multiplication
+math/fft.cpp	Fast Fourier Transform
+math/fht.cpp	FHT
+math/fibolog.cpp	Fibonacci Matrix
+math/matrix_expo.cpp	Matrix Exponentiation
+math/binpow.cpp	Binary Exponentiation
+math/euler_totient_function.cpp	Euler's Totient Function
+math/extended_euclidean.cpp	Extended Euclidean (Diophantic)
+math/inversamod.cpp	Inversa modular
+math/legendre_formula.cpp	Legendre's Formula
+math/mobious.cpp	Mobious
+math/miller_rabin.cpp	Miller Rabin Test
+math/pollard_rho.cpp	Pollard Rho
+math/CRT.cpp	Chinese Remainder Theorem
+math/simplex.cpp	Simplex
+math/gaussjordan.cpp	Gauss Jordan
+math/gaussjordan_modular.cpp	Gauss Jordan Modular
+
+[Dynamic Programming]
+dynamic-programming/edit_distance.cpp	Edit Distance
+dynamic-programming/lcs.cpp	Longest common subsequence
+dynamic-programming/lis.cpp	Longest increasing subsequence
+dynamic-programming/merging_intervals.cpp	Trick to merge intervals
+dynamic-programming/sos_dp.cpp	Trick Sets DP
+dynamic-programming/dpdivideandconquer.cpp	Divide and Conquer
+dynamic-programming/knuth_optimization.cpp	Knuth's Optimization
+dynamic-programming/chulltrick.cpp	Convex Hull Trick
+dynamic-programming/chulltrickdynamic.cpp	CH Trick Dynamic
+
+[Geometry]
+geometry/point.h	Point
+geometry/line.h	Line
+geometry/convex_hull.h	Convex Hull
+geometry/polygon.h	Polygon
+geometry/circle.h	Circle
+geometry/radial_order.h	Radial Order
+geometry/coords.h	Coords
+geometry/plane.h	Plane
+geometry/halfplane.h	Halfplane
+geometry/sph.h	Sphere
+geometry/polih.h	Polih
+geometry/ln3.h	Line3
+geometry/p3.h	Point3
+geometry/plane3.h	Plane3
+
+[Miscellaneous]
+miscellaneous/counting_sort.cpp	Counting Sort
+miscellaneous/expression_parsing.cpp	Expression Parsing
+miscellaneous/ternary_search.cpp	Ternary Search
+
+[Fin]

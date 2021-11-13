@@ -1,0 +1,95 @@
+\documentclass[8pt]{article}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tocloft}
+\usepackage{pdflscape}
+\usepackage{multicol}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+
+\renewcommand*{\ttdefault}{pcr}
+\renewcommand\cftsecfont{\fontsize{10}{9}\bfseries}
+\renewcommand\cftsecpagefont{\fontsize{10}{9}\mdseries}
+\renewcommand\cftsubsecfont{\fontsize{10}{6}\mdseries}
+\renewcommand\cftsubsecpagefont{\fontsize{10}{6}\mdseries}
+\renewcommand\cftsecafterpnum{\vspace{-.5ex}}
+\renewcommand\cftsubsecafterpnum{\vspace{0ex}}
+
+\newcommand{\Section}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{subsection}{#1}
+    \vspace{-3mm}
+}
+
+\newcommand{\Topic}[1]{\textbf{#1}}
+
+\lstdefinestyle{shared}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+    xleftmargin=\parindent,
+    showstringspaces=false,
+    basicstyle=\fontsize{10}{6}\ttfamily,
+}
+\lstdefinestyle{cpp}{
+	style=shared,
+    language=C++,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{blue!90!black},
+    identifierstyle=\color{black},
+    stringstyle=\color{red!90!black},
+}
+\lstdefinestyle{py}{
+    style=shared,
+    language=Python,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{blue},
+    stringstyle=\color{orange},
+}
+\lstdefinestyle{java}{
+    style=shared,
+    language=Java,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{blue},
+    stringstyle=\color{red},
+}
+\lstdefinestyle{txt}{
+    style=shared,
+}
+\lstset{escapechar=@}
+
+
+\title{\vspace{-4ex}\Large{Fast and Fourier ICPC Team Notebook}}
+\author{}
+\date{}
+
+\begin{document}
+\begin{landscape}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{40pt}
+\begin{multicols}{2}
+\maketitle
+\vspace{-13ex}
+\tableofcontents
+\pagestyle{fancy}
+
+\input contents.tex
+
+\end{multicols}
+\pagebreak
+\setlength{\columnseprule}{0pt}
+\begin{multicols}{2}
+\input Theory.tex
+\end{multicols}
+
+\pagebreak
+
+
+
+\end{landscape}
+\end{document}
+
