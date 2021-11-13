@@ -1,5 +1,3 @@
-ch= 'B';  ch|= ' '; // mayuscula a minuscula
-ch= 'c';  ch &= '_'; // minuscula a mayuscula
 mask |= (1<<n) // PRENDER BIT-N
 mask ^= (1<<n) // FLIPPEAR BIT-N
 mask &= ~(1<<n) // APAGAR BIT-N
