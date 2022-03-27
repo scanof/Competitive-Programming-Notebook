@@ -7,6 +7,7 @@ void init(int N){
       st[i][j] = st[i][j-1] + st[i + (1 << (j - 1))][j - 1];
 }
 void get(int l, int r){
+  sum = 0;
   for (int j = K-1; j >= 0; j--) {
     if ((1 << j) <= r - l + 1) {
       sum += st[l][j];
