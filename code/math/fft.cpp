@@ -1,15 +1,17 @@
+typedef double ld;
 const ld PI = acos(-1.0L);
+const ld one = 1;
 
-typedef complex<double> C;
-typedef vector<double> vd;
+typedef complex<ld> C;
+typedef vector<ld> vd;
 
 void fft(vector<C>& a) {
 	int n = sz(a), L = 31 - __builtin_clz(n);
-	static vector<complex<long double>> R(2, 1);
+	static vector<complex<ld>> R(2, 1);
 	static vector<C> rt(2, 1);  // (^ 10% faster if double)
 	for (static int k = 2; k < n; k *= 2) {
 		R.resize(n); rt.resize(n);
-		auto x = polar(1.0L, PI / k);
+		auto x = polar(one, PI / k);
 		fore(i,k,2*k-1) rt[i] = R[i] = i&1 ? R[i/2] * x : R[i/2];
 	}
 	vi rev(n);
@@ -18,7 +20,7 @@ void fft(vector<C>& a) {
 	for (int k = 1; k < n; k *= 2)
 		for (int i = 0; i < n; i += 2 * k) forn(j,k) {
 			// C z = rt[j+k] * a[i+j+k]; // (25% faster if hand-rolled)  /// include-line
-			auto x = (double *)&rt[j+k], y = (double *)&a[i+j+k];        /// exclude-line
+			auto x = (ld *)&rt[j+k], y = (ld *)&a[i+j+k];        /// exclude-line
 			C z(x[0]*y[0] - x[1]*y[1], x[0]*y[1] + x[1]*y[0]);           /// exclude-line
 			a[i + j + k] = a[i + j] - z;
 			a[i + j] += z;
