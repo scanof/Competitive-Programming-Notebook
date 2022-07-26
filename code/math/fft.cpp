@@ -38,7 +38,7 @@ vl conv(const vl& a, const vl& b) {
 	for (C& x : in) x *= x;
 	forn(i,n) out[i] = in[-i & (n - 1)] - conj(in[i]);
 	fft(out);
-	forn(i,sz(res)) res[i] = imag(out[i]) / (4 * n) +0.5;
+	forn(i,sz(res)) res[i] = floor(imag(out[i]) / (4 * n) +0.5);
 	return res;
 }
 
