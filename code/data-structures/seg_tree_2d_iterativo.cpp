@@ -1,5 +1,5 @@
 int n,m;
-const ll neutro = -inf;
+const ll neutro = 0;
 ll op(ll a, ll b){ return a+b;}
 ll a[nax][nax],st[2*nax][2*nax];
 void build(){
