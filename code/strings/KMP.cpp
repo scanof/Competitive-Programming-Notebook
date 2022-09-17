@@ -1,6 +1,5 @@
-vector<int> get_phi(string &s) { // O(|s|)
-  int j = 0, n = sz(s);
-  vi pi(n);
+vi get_phi(string &s) { // O(|s|)
+  int j = 0, n = sz(s); vi pi(n);
   for1(i,n-1){
     while (j > 0 && s[i] != s[j]) j = pi[j-1];
     j += (s[i] == s[j]);
@@ -9,7 +8,7 @@ vector<int> get_phi(string &s) { // O(|s|)
   return pi;
 }
 void kmp(string &t, string &p){ // O(|t| + |p|)
-  vector<int> phi = get_phi(p);
+  vi phi = get_phi(p);
   int matches = 0;
   for(int i = 0, j = 0; i < sz(t); ++i ) {
     while(j > 0 && t[i] != p[j] ) j = phi[j-1];
@@ -25,7 +24,7 @@ void kmp(string &t, string &p){ // O(|t| + |p|)
 int aut[nax][26];
 void kmp_aut(string &p) {
   int n = sz(p);
-  vector<int> phi = get_phi(p);
+  vi phi = get_phi(p);
   forn(i, n+1) {
     forn(c, 26) {
       if (i==n || (i>0 && 'a'+c!= p[i])) aut[i][c] = aut[phi[i-1]][c];

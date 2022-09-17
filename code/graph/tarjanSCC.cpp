@@ -1,4 +1,4 @@
-vector<int> low, num, comp, g[nax];
+vi low, num, comp, g[nax];
 int scc, timer;
 stack<int> st;
 void tjn(int u) {
@@ -16,6 +16,5 @@ void tjn(int u) {
 void callt(int n) {
   timer = scc= 0;
   num = low = comp = vector<int>(n,-1);
-  forn(i,n)
-    if(num[i]==-1) tjn(i);
+  forn(i,n) if(num[i]==-1) tjn(i);
 }

@@ -1,7 +1,7 @@
 // Complexity: V + E
 // Given an undirected graph
 int n, timer, tin[nax], low[nax];
-vector<int> g[nax]; // adjacency list of graph
+vi g[nax]; // adjacency list of graph
 
 void dfs(int u, int p) {
   tin[u] = low[u] = ++timer;
@@ -26,6 +26,5 @@ void dfs(int u, int p) {
 
 void find_articulations() {
   timer = 0;
-  forn(i,n)
-    if(!tin[i]) dfs(i,-1);
+  forn(i,n) if(!tin[i]) dfs(i,-1);
 }

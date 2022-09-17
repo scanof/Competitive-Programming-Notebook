@@ -1,5 +1,5 @@
 int cnt[nax], depth[nax], f[nax], dist[25][nax];
-vector<int> g[nax];
+vi g[nax];
 int dfs(int u, int dep = -1, bool flag = 0, int dis = 0, int p = -1) {
   cnt[u] = 1;
   if(flag) dist[dep][u] = dis;

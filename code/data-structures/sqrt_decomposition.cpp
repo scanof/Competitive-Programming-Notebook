@@ -1,14 +1,12 @@
 // Complexity
-// Preprocessing O(n)  query O(n/sqrt(n) + sqrt(n))
+// Preprocessing O(n)  query O(n/sqrt(n) + sqrt(n)) 
 // Update O(1)
 struct sqrt_decomp{
-  vector<int> a, b;
+  vi a, b;
   int n, len;
-  sqrt_decomp(vector<int> &arr){ // preprocessing
-    a = arr;
-    n = sz(a);
-    len = sqrt(n) + 1;
-    b = vector<int>(len);
+  sqrt_decomp(vi &arr){ // preprocessing
+    a = arr; n = sz(a); len = sqrt(n) + 1;
+    b = vi(len);
     forn(i,n) b[i/len] += a[i];
   }
   void update(int pos, int val){

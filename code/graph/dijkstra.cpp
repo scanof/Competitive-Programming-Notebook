@@ -3,7 +3,7 @@ vector <ii> g[nax];
 int d[nax], p[nax];
 void dijkstra(int s, int n){
   forn(i,n) d[i] = inf, p[i] = -1;
-  priority_queue < ii, vector <ii>,greater<ii> > q;
+  priority_queue <ii, vector <ii>,greater<ii> > q;
   d[s] = 0;
   q.push(ii(0, s));
   int dist, u, v, w;

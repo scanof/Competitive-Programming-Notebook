@@ -1,7 +1,7 @@
 int phi(int n) { // O(sqrt(n))
   if(n==1) return 0;
   int ans = n;
-  for (int i = 2; 1LL*i*i <= n; i++) {
+  for (int i = 2; 1ll*i*i <= n; i++) {
     if(n % i == 0) {
       while(n % i == 0) n /= i;
       ans -= ans / i;
@@ -11,8 +11,8 @@ int phi(int n) { // O(sqrt(n))
   return ans;
 }
 //////////////////
-void phi_(int n) { // O(n loglogn)
-  vector<int> phi(n + 1);
+vi phi_(int n) { // O(n loglogn)
+  vi phi(n + 1);
   phi[0] = 0;
   for1(i,n) phi[i] = i;
   fore(i,2,n){

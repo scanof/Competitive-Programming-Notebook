@@ -1,7 +1,7 @@
 // Complexity O(V+E)
 // KOSARAJU
 int N, scc;
-vector<int> g[2][nax], ts, comp;
+vi g[2][nax], ts, comp;
 vector<bool> truth;
 
 void dfs(int u, int id) {
@@ -17,13 +17,11 @@ void dfs(int u, int id) {
 bool solve_2SAT() {
   int n = 2*N;
   comp.assign(n, -1), truth.assign(N, false);
-  forn(i,n)
-    if(comp[i]==-1) dfs(i,0);
+  forn(i,n) if(comp[i]==-1) dfs(i,0);
   scc= 0;
   forn(i,n){
     int v = ts[n - i - 1];
-    if (comp[v] ==-2)
-      dfs(v,1), ++scc;
+    if (comp[v] ==-2) dfs(v,1), ++scc;
   }
   forn(i,N) {
     if (comp[i] == comp[i + N]) return false;
@@ -39,7 +37,7 @@ void add_edge(int x, int y){
 // TARJAN testeado con 2 problemas
 // Complexity O(V+E)
 int N;
-vector<int> low, num, comp, g[nax];
+vi low, num, comp, g[nax];
 vector<bool> truth;
 int scc, timer;
 stack<int> st;
@@ -58,9 +56,8 @@ void tjn(int u) {
 bool solve_2SAT() {
   int n = 2*N;
   timer = scc= 0;
-  num = low = comp = vector<int>(n,-1);
-  forn(i,n)
-    if(num[i]==-1) tjn(i);
+  num = low = comp = vi(n,-1);
+  forn(i,n) if(num[i]==-1) tjn(i);
   truth = vector<bool>(N, false);
   forn(i,N) {
     if (comp[i] == comp[i + N]) return false;

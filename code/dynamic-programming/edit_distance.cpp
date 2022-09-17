@@ -1,6 +1,6 @@
 // O(m*n) donde cada uno es el tamano de cada string
 int editDist(string &s1, string &s2){
-  m = sz(s1), n = sz(s2);
+  int m = sz(s1), n = sz(s2);
   int dp[m+1][n+1];
   forn(i,m+1)
     forn(j,n+1){

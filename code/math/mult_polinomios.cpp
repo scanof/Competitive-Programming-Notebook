@@ -1,9 +1,7 @@
-int polinomioResultante [grado1 + grado2 + 1];
+int ans[grado1+grado2+1];
 
-forn(c,grado1 + grado2 + 1)
-  polinomioResultante[c] = 0;
-forn(pos,grado1 + 1){
-  forn(ter, grado2 + 1){
-    polinomioResultante[pos + ter] += polinomio1[pos] * polinomio2[ter];
-  }
+forn(c,grado1+grado2+1) ans[c] = 0;
+forn(pos,grado1+1){
+  forn(ter,grado2+1)
+    ans[pos + ter] += pol1[pos] * pol2[ter];
 }

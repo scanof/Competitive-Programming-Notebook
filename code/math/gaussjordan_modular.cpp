@@ -1,29 +1,15 @@
 const int eps = 0, mod = 1e9+7;
 
-int bin_pow(int b, int e){
-  int ans = 1;
-  while(e){
-    if(e&1) ans = 1LL*ans*b%mod;
-    b = 1LL*b*b%mod;
-    e >>= 1;
-  }
-  return ans;
-}
-
-int inv(int a){
-  return bin_pow(a, mod-2);
-}
-
-int gauss(vector<vector<int>> &a, vector<int> &ans) {
+int gauss(vector<vi> &a, vi &ans) {
   int n = sz(a), m = sz(a[0]) - 1;
   vi where(m, -1);
   for(int col=0, row=0; col<m && row<n; ++col) {
     int sel = row;
-    for(int i=row; i<n; ++i)
+    fore(i,row,n-1)
       if(abs(a[i][col]) > abs(a[sel][col])) sel = i;
     if(abs(a[sel][col]) <= eps) continue;
 
-    for(int i=col; i<=m; ++i) swap (a[sel][i], a[row][i]);
+    fore(i,col,m) swap (a[sel][i], a[row][i]);
     where[col] = row;
 
     forn(i,n){

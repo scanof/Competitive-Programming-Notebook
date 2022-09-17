@@ -2,11 +2,11 @@
 vector<ii> g[nax];
 bool inqueue[nax];
 int n;
-bool spfa(int s, vi& d) {
-  d.assign(n, inf);
+bool spfa(int s, vi& dist) {
+  dist.assign(n, inf);
   vi cnt(n, 0);
   queue<int> q;
-  d[s] = 0;
+  dist[s] = 0;
   q.push(s);
   inqueue[s] = true;
   int u, v, w;
@@ -15,8 +15,8 @@ bool spfa(int s, vi& d) {
     inqueue[u] = false;
     for (ii e: g[u]) {
       tie(v, w) = e;
-      if (d[u] + w < d[v]) {
-        d[v] = d[u] + w;
+      if (dist[u] + w < dist[v]) {
+        dist[v] = dist[u] + w;
         if (!inqueue[v]) {
           q.push(v);
           inqueue[v] = true;

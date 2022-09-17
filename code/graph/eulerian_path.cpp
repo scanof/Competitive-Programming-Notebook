@@ -17,7 +17,7 @@ void add_edge(int a, int b){
 //	g[b].push_front(edge(a));auto ib=g[b].begin();
 //	ia->rev=ib;ib->rev=ia;
 }
-vector<int> p;
+vi p;
 void go(int u){
 	while(sz(g[u])){
 		int v=g[u].front().v;
@@ -28,7 +28,7 @@ void go(int u){
 	p.push_back(u);
 }
 
-vector<int> get_path(int u){   
+vi get_path(int u){   
 	p.clear();
 	go(u);
 	reverse(all(p));
@@ -36,7 +36,7 @@ vector<int> get_path(int u){
 }
 
 /// for undirected uncomment and check for path existance
-bool eulerian(vector<int> &tour) { /// directed graph
+bool eulerian(vi &tour) { /// directed graph
   int one_in = 0, one_out = 0, start = -1;
   bool ok = true;
   for (int i = 0; i < n; i++) {

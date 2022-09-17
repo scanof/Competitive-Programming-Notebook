@@ -1,13 +1,11 @@
 /*
 OVERFLOW!!!
-
 p = p1*p2*...*pk, pi pairwise coprime
 
 a = a1 mod p1
 a = a2 mod p2
 ..
 a = ak mod pk
-
 
 This function returns
 a = x1 + x2*p1 + x3*p1*p2 + ... + xk*p1*p2*...*pk-1

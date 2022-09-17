@@ -1,6 +1,6 @@
 // Complexity O(V+E)
 int N;
-vector<int> low, num, comp, g[nax];
+vi low, num, comp, g[nax];
 vector<bool> truth;
 int scc, timer;
 stack<int> st;
@@ -19,7 +19,7 @@ void tjn(int u) {
 bool solve_2SAT() {
   int n = 2*N;
   timer = scc= 0;
-  num = low = comp = vector<int>(n,-1);
+  num = low = comp = vi(n,-1);
   forn(i,n)
     if(num[i]==-1) tjn(i);
   truth = vector<bool>(N, false);

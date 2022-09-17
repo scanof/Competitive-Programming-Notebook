@@ -3,11 +3,11 @@ int gauss(vector<vector<double>> &a, vector<double> &ans) {
   vi where(m, -1);
   for(int col=0, row=0; col<m && row<n; ++col) {
     int sel = row;
-    for(int i=row; i<n; ++i)
+    fore(i,row,n-1)
       if(abs(a[i][col]) > abs(a[sel][col])) sel = i;
     if(abs(a[sel][col]) < eps) continue;
 
-    for(int i=col; i<=m; ++i) swap (a[sel][i], a[row][i]);
+    fore(i,col,m) swap (a[sel][i], a[row][i]);
     where[col] = row;
 
     forn(i,n){

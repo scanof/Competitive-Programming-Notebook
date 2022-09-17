@@ -1,7 +1,7 @@
 const int L = 24;
 int timer, up[nax][L+1], n;
 int in[nax], out[nax];
-vector<int> g[nax];
+vi g[nax];
 void dfs(int u, int p){
   in[u] = ++timer;
   up[u][0] = p;

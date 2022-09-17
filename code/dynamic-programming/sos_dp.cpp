@@ -6,9 +6,9 @@ int A[1<<N];
 // ith bit is ON S(mask, i) = S(mask, i-1)
 // ith bit is OFF S(mask,i) = S(mask, i-1) + S(mask^(1<<i), i-1)
 //iterative version
-for(int mask = 0; mask < (1<<N); ++mask){
+forn(mask,(1<<N)){
 	dp[mask][0] = A[mask];	//handle base case separately (leaf states)
-	for(int i = 0;i < N; ++i){
+	forn(i,N){
 		if(mask & (1<<i))
 			dp[mask][i+1] = dp[mask][i] + dp[mask^(1<<i)][i];
 		else
@@ -17,10 +17,8 @@ for(int mask = 0; mask < (1<<N); ++mask){
 	F[mask] = dp[mask][N];
 }
 //memory optimized, super easy to code.
-for(int i = 0; i<(1<<N); ++i)
-	F[i] = A[i];
-for(int i = 0;i < N; ++i)
-  for(int mask = 0; mask < (1<<N); ++mask){
-    if(mask & (1<<i))
-      F[mask] += F[mask^(1<<i)];
+forn(i,(1<<N)) F[i] = A[i];
+forn(i,N)
+  forn(mask,(1<<N)){
+    if(mask & (1<<i)) F[mask] += F[mask^(1<<i)];
   }

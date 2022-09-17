@@ -8,7 +8,7 @@ void pivot(int x,int y){
 	b[x]/=A[x][y];
 	forn(i,m)if(i!=y)A[x][i]/=A[x][y];
 	A[x][y]=1/A[x][y];
-	forn(i,n)if(i!=x&&abs(A[i][y])>EPS){
+	forn(i,n)if(i!=x&&abs(A[i][y])>eps){
 		b[i]-=A[i][y]*b[x];
 		forn(j,m)if(j!=y)A[i][j]-=A[i][y]*A[x][j];
 		A[i][y]=-A[i][y]*A[x][y];
@@ -27,20 +27,20 @@ pair<double,vector<double> > simplex( // maximize c^T x s.t. Ax<=b, x>=0
 	forn(i,n)Y[i]=i+m;
 	while(1){
 		int x=-1,y=-1;
-		double mn=-EPS;
+		double mn=-eps;
 		forn(i,n)if(b[i]<mn)mn=b[i],x=i;
 		if(x<0)break;
-		forn(i,m)if(A[x][i]<-EPS){y=i;break;}
+		forn(i,m)if(A[x][i]<-eps){y=i;break;}
 		assert(y>=0); // no solution to Ax<=b
 		pivot(x,y);
 	}
 	while(1){
-		double mx=EPS;
+		double mx=eps;
 		int x=-1,y=-1;
 		forn(i,m)if(c[i]>mx)mx=c[i],y=i;
 		if(y<0)break;
 		double mn=1e200;
-		forn(i,n)if(A[i][y]>EPS&&b[i]/A[i][y]<mn)mn=b[i]/A[i][y],x=i;
+		forn(i,n)if(A[i][y]>eps&&b[i]/A[i][y]<mn)mn=b[i]/A[i][y],x=i;
 		assert(x>=0); // c^T x is unbounded
 		pivot(x,y);
 	}
