@@ -7,7 +7,7 @@ pll extendedEuclid(ll a, ll b){ // a * x + b * y = __gcd(a,b)
 	if(a*x+b*y==-__gcd(a,b)) x=-x, y=-y;
 	return {x,y};
 }
-pair<pll,pll> diophantine(ll a,ll b, ll r) {
+pair<pll,pll> diophantine(ll a, ll b, ll r) {
   //a*x+b*y=r where r is multiple of __gcd(a,b);
 	ll d=__gcd(a,b);
   a/=d; b/=d; r/=d;
