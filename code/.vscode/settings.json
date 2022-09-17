@@ -3,6 +3,8 @@
     "iomanip": "cpp",
     "vector": "cpp",
     "cmath": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "numeric": "cpp",
+    "tuple": "cpp"
   }
 }

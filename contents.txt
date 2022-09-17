@@ -95,6 +95,7 @@ math/CRT.cpp	Chinese Remainder Theorem
 math/simplex.cpp	Simplex
 math/gaussjordan.cpp	Gauss Jordan
 math/gaussjordan_modular.cpp	Gauss Jordan Modular
+math/berlekamp_massey.cpp	Berlekamp Massey
 
 [Dynamic Programming]
 dynamic-programming/edit_distance.cpp	Edit Distance
