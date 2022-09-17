@@ -36,7 +36,6 @@ graph/dijkstra.cpp	Dijkstra
 graph/Bellmanford.cpp	Bellman-Ford
 graph/spfa.cpp	Shortest Path Faster Algorithm
 graph/floyd_warshall.cpp	Floyd-Warshall
-graph/LCA.cpp	LCA
 graph/LCA_binarylifting.cpp	LCA Binary Lifting
 graph/2sat.cpp	2 SAT
 graph/centroid_decomposition.cpp	Centroid Decomposition
