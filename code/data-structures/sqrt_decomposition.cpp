@@ -7,7 +7,7 @@ struct sqrt_decomp{
   sqrt_decomp(vector<int> &arr){ // preprocessing
     a = arr;
     n = sz(a);
-    len = (int) sqrt (n + .0) + 1;
+    len = sqrt(n) + 1;
     b = vector<int>(len);
     forn(i,n) b[i/len] += a[i];
   }
