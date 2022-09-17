@@ -1,13 +1,3 @@
-#include <bits/stdc++.h>
-
-#define fi first
-#define se second
-
-using namespace std;
-
-typedef long long ll;
-typedef pair<ll,ll> pll;
-
 pll extendedEuclid(ll a, ll b){ // a * x + b * y = __gcd(a,b)
 	ll x,y;
 	if (b==0) return {1,0};
@@ -48,8 +38,3 @@ pair<ll,ll> crt(vector< tuple<ll,ll,ll> > &cond) { // returns: (sol, lcm)
 	}
 	return sol(make_tuple(1,x1,m1));
 } //cond[i]={ai,bi,mi} ai*xi=bi (mi); assumes lcm fits in ll
-
-int main(){
-  // cout << "NO" << endl;
-  return 0;
-}
