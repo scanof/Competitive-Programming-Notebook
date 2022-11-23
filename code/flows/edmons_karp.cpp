@@ -2,7 +2,7 @@
 const ll inf = 1e18;
 
 struct EKarp{
-  vector<int> q, dist, p;
+  vector<int> p;
   vector<vector<ll>> cap, flow;
   vector<vector<int>> g;
   int n, s, t;
