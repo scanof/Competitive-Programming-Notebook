@@ -14,21 +14,21 @@ int sph_ln_inter(p3 o, ld r, ln3 l, pair<p3,p3> &out){
   out = {p-h, p+h};
   return 1 + (h2>0);
 }
+///if A,B not in sphere -> takes radial projections (from O)
+ld sph_dist(p3 o, ld r, p3 a, p3 b){ return r * angle(a-o, b-o); }
+///Accepts A==B, Denies opposite to each other (seg not well defined)
+bool valid_seg(p3 a, p3 b){ return a%b != zero || (a*b) > 0; }
 
-ld sph_dist(p3 o, ld r, p3 a, p3 b){    ///if A,B not in sphere -> takes radial projections (from O)
-  return r * angle(a-o, b-o);
-}
-
-bool valid_seg(p3 a, p3 b){        ///Accepts A==B
-  return a%b != zero || (a*b) > 0; ///Denies opposite to each other (seg not well defined)
+int sgn(ld x){
+  if(x<0) return -1;
+  else if(abs(x) <= eps) return 0;
+  return 1;
 }
 
 bool proper_inter(p3 a, p3 b, p3 c, p3 d, p3 &out){
   p3 ab = a%b, cd = c%d;
-  int oa = sgn(cd*a),
-      ob = sgn(cd*b),
-      oc = sgn(ab*c),
-      od = sgn(ab*d);
+  int oa = sgn(cd*a),  ob = sgn(cd*b),
+      oc = sgn(ab*c),  od = sgn(ab*d);
   out = ab%cd * od;
   return (oa != ob && oc != od && oa != oc);
 }
@@ -62,22 +62,19 @@ dir_set seg_inter(p3 a, p3 b, p3 c, p3 d){
   return s;
 }
 
-ld angle_sph(p3 a, p3 b, p3 c){
-  return angle(a%b, a%c);
-}
-
-ld oriented_angle_sph(p3 a, p3 b, p3 c){
+ld ang_sph(p3 a, p3 b, p3 c){ return ang(a%b, a%c);}
+ld oriented_ang_sph(p3 a, p3 b, p3 c){
   if((a%b*c) >= 0)
-    return angle_sph(a, b, c);
+    return ang_sph(a, b, c);
   else
-    return 2*pi - angle_sph(a, b, c);
+    return 2*pi - ang_sph(a, b, c);
 }
 
 ld area_sph(ld r, vector<p3> &p){       ///for solid angle -> r = 1
   int n = sz(p);
   ld sum = -(n-2)*pi;
   forn(i,n)
-    sum += oriented_angle_sph(p[(i+1)%n], p[(i+2)%n], p[i]);
+    sum += oriented_ang_sph(p[(i+1)%n], p[(i+2)%n], p[i]);
   return r*r*sum;
 }
 
