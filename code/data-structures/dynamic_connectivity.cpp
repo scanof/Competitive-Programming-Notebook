@@ -1,13 +1,12 @@
 struct dsu {
 	vi p, r, c;  int comp;
-	dsu(int n):comp(n), p(n), r(n, 1){ iota(all(p), 0);}
-	int find_set(int x){return x == p[x] ? x : find_set(p[x]);}
-	bool union_set(int x, int y){
-		if((x = find_set(x)) == (y = find_set(y))) return false;
-		if(r[x] > r[y]) swap(x, y);
-    r[y] += r[x];  c.pb(x);
-		p[x] = y;  --comp;  
-		return true;
+	dsu(int n): p(n), r(n, 1), comp(n){iota(all(p), 0);}
+	int find_set(int i){return i == p[i] ? i : find_set(p[i]);}
+	void union_set(int i, int j){
+		if((i = find_set(i)) == (j = find_set(j))) return;
+		if(r[i] > r[j]) swap(i, j);
+    r[j] += r[i];  c.pb(i);
+		p[i] = j;  --comp;
 	}
 	void rollback(int snap){
 		while(sz(c) > snap){
@@ -17,29 +16,26 @@ struct dsu {
 	}
 };
 enum {ADD, DEL, QUERY};
-struct Query {int type, x, y;};
-
+struct Query {int type, u, v;};
 struct DynCon {
-	vector<Query> q; 
-	dsu uf;  vi mt;
-  map<ii, int> prv;
+	vector<Query> q;  dsu uf;
+	vi mt;  map<ii, int> prv;
 	DynCon(int n): uf(n){}
-	void add(int x, int y){
-		if(x > y) swap(x, y);
-		q.pb({ADD, x, y}); mt.pb(-1);
-    prv[{x, y}] = sz(q)-1;
+	void add(int i, int j){
+		if(i > j) swap(i, j);
+		q.pb({ADD, i, j}); mt.pb(-1);
+    prv[{i, j}] = sz(q)-1;
 	}
-	void remove(int x, int y){
-		if(x > y) swap(x, y);
-		q.pb({DEL, x, y});
-		int pr = prv[{x, y}];
+	void remove(int i, int j){
+		if(i > j) swap(i, j);
+		q.pb({DEL, i, j});
+		int pr = prv[{i, j}];
 		mt[pr] = sz(q)-1;  mt.pb(pr);
 	}
 	void query(){ q.pb({QUERY, -1, -1});  mt.pb(-1);}
 	void process(){ // answers all queries in order
 		if(!sz(q)) return;
-		forn(i, sz(q)) 
-      if(q[i].type == ADD && mt[i] < 0) mt[i] = sz(q);
+		forn(i, sz(q)) if(q[i].type == ADD && mt[i] < 0) mt[i] = sz(q);
 		go(0, sz(q));
 	}
 	void go(int s, int e){
@@ -48,13 +44,9 @@ struct DynCon {
 			return;
 		}
 		int k = sz(uf.c), m = (s+e)/2;
-		for(int i = e-1; i >= m; --i)
-      if(mt[i] >= 0 && mt[i] < s) uf.union_set(q[i].x, q[i].y);
-		go(s, m);
-		uf.rollback(k);
-		for(int i = m-1; i >= s; --i)
-      if(mt[i] >= e) uf.union_set(q[i].x, q[i].y);
-		go(m, e);
-		uf.rollback(k);
+		fored(i, m, e-1) if(mt[i] >= 0 && mt[i] < s) uf.union_set(q[i].u, q[i].v);
+		go(s, m);  uf.rollback(k);
+    fored(i, s, m-1) if(mt[i] >= e) uf.union_set(q[i].u, q[i].v);
+		go(m, e);  uf.rollback(k);
 	}
 };
