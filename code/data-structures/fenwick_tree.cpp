@@ -1,4 +1,4 @@
-struct fwtree{
+struct fwtree{ // 1-indexed
   int n;  vi bit;
   fwtree(int n): n(n), bit(n+1){}
   int rsq(int r){
