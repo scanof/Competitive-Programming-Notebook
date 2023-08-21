@@ -1,21 +1,15 @@
-struct fwtree{ /// 1-indexed
-  vector<vector<ll>> bit;
-  int n, m;
+struct fwtree{ // 0-indexed
+  int n, m;  vector<vll> bit;
   fwtree(){}
-  fwtree(int n, int m):n(n),m(m){
-    bit = vector<vector<ll>>(n+1, vector<ll>(m+1,0));
-  }
-  ll sum(int x, int y) {
+  fwtree(int n, int m): n(n), m(m), bit(n+1, vll(m+1, 0)){}
+  ll sum(int x, int y) { // [0, x], [0, y]
     ll v = 0;
-    for (int i = x; i > 0; i -= i&(-i) )
-      for (int j = y; j > 0; j -= j&(-j) )
-        v += bit[i][j];
+    for(int i = x+1; i; i -= i & -i)
+      for(int j = y+1; j; j -= j & -j) v += bit[i][j];
     return v;
   }
-
   void add(int x, int y, ll dt) {
-    for (int i = x; i <= n; i += i&(-i) )
-      for (int j = y; j <= m; j += j&(-j) )
-        bit[i][j] += dt;
+    for(int i = x+1; i <= n; i += i & -i)
+      for(int j = y+1; j <= m; j += j & -j) bit[i][j] += dt;
   }
 };
