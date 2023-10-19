@@ -1,72 +1,53 @@
-///Complexity O(V^2 * E^2)
 const ll inf = 1e18;
-struct edge {
-  int to, rev; ll f, cap, cost;
-  edge(int to, int rev, ll cap, ll cost, ll f=0) : to(to), rev(rev), cap(cap), cost(cost), f(f) {}
+struct edge{
+  int to, rev; ll cap, cos, f{0};
+  edge(int to, int rev, ll cap, ll cos):to(to), rev(rev), cap(cap), cos(cos){}
 };
 struct MCMF{
-  int n;
+  int n, s, t; 
   vector<vector<edge>> g;
-  void addEdge(int s, int t, ll cap, ll cost){
-    g[s].pb(edge(t, sz(g[t]), cap, cost));
-    g[t].pb(edge(s, sz(g[s])-1, 0, -cost));
+  vi p;  vll dis;
+  MCMF(int n): n(n), g(n){}
+  void addEdge(int s, int t, ll cap, ll cos){
+    g[s].pb(edge(t, sz(g[t]), cap, cos));
+    g[t].pb(edge(s, sz(g[s])-1, 0, -cos));
   }
-  MCMF(int n):n(n){
-    g.resize(n);
-  }
-  void spfa(int v0, vector<ll>& d, vector<int>& p) {
-    d.assign(n, inf); d[v0] = 0;
-    vector<bool> inq(n,false);
-    queue<int> q;
-    q.push(v0);
-    p.assign(n,-1);
-    while (!q.empty()) {
-      int u = q.front();
-      q.pop();
-      inq[u] = false;
-      for(int i= 0; i< g[u].size(); ++i){
-        edge v = g[u][i];
-        if (v.cap - v.f > 0 && d[v.to] > d[u] + v.cost ) {
-          d[v.to] = d[u] + v.cost;
-          p[v.to] = v.rev;
-          if (!inq[v.to]) {
-            inq[v.to] = true;
-            q.push(v.to);
-          }
+  void spfa(int v0){
+    dis.assign(n, inf); dis[v0] = 0;
+    p.assign(n, -1);
+    vector<bool> inq(n);
+    queue<int> q({v0});
+    while(sz(q)){
+      int u = q.front(); q.pop();
+      inq[u] = 0;
+      for(auto&[v, rev, cap, cos, f] : g[u]){
+        if(cap - f > 0 && dis[v] > dis[u] + cos){
+          dis[v] = dis[u] + cos, p[v] = rev;
+          if(!inq[v]) inq[v] = 1, q.push(v);
         }
       }
     }
   }
-  ll min_cost_flow(ll K, int s, int t) {
+  ll min_cos_flow(ll K){
     ll flow = 0, cost = 0;
-    vector<int> p;
-    vector<ll> d;
-    while (flow < K) {
-      spfa(s, d, p);
-      if (d[t] == inf) break;
-//       find max flow on that path
-      ll f = K - flow;
-      int cur = t;
-      while (cur != s) {
-        int u = g[cur][p[cur]].to;
-        int rev = g[cur][p[cur]].rev;
-        ll c = g[u][rev].cap - g[u][rev].f;
-        f = min(f, c);
+    while(flow < K){
+      spfa(s);
+      if(dis[t] == inf) break;
+      ll f = K - flow;    
+      int cur = t; // Find flow
+      while(cur != s){  
+        int u = g[cur][p[cur]].to, rev = g[cur][p[cur]].rev;
+        f = min(f, g[u][rev].cap - g[u][rev].f);
         cur = u;
       }
-      // apply flow
-      flow += f;
-      cost += f * d[t];
-      cur = t;
-      while (cur != s) {
-        int rev = g[cur][p[cur]].rev;
-        int u = g[cur][p[cur]].to;
-        g[u][rev].f += f;
-        g[cur][p[cur]].f -= f;
+      flow += f,  cost += f * dis[t],  cur = t;     // Apply flow
+      while(cur != s){
+        int u = g[cur][p[cur]].to, rev = g[cur][p[cur]].rev;
+        g[u][rev].f += f,  g[cur][p[cur]].f -= f;
         cur = u;
       }
     }
-    if(flow< K) return -1;
+    if(flow < K) assert(0);
     return cost;
   }
 };
