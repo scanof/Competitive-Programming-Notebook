@@ -1,30 +1,36 @@
 // Complexity O(V*E) worst, O(E) on average.
-vector<ii> g[nax];
-bool inqueue[nax];
-int n;
-bool spfa(int s, vi& dist) {
-  dist.assign(n, inf);
-  vi cnt(n, 0);
-  queue<int> q;
-  dist[s] = 0;
-  q.push(s);
-  inqueue[s] = true;
-  int u, v, w;
-  while(sz(q)) {
-    u = q.front(); q.pop();
-    inqueue[u] = false;
-    for (ii e: g[u]) {
-      tie(v, w) = e;
-      if (dist[u] + w < dist[v]) {
+vector<ii> g[N];
+ll dist[N];
+int pa[N], cnt[N];
+bool in_q[N];
+bool spfa(int s, int n){
+  forn(i, n) dist[i] = (i == s ? 0 : inf);
+  queue<int> q({s});  in_q[s] = 1;
+  int start = -1;
+  while(sz(q) && start == -1) {
+    int u = q.front();  q.pop();
+    in_q[u] = 0;
+    for(auto& [v, w] : g[u]){
+      if(dist[u] + w < dist[v]) {
         dist[v] = dist[u] + w;
-        if (!inqueue[v]) {
+        pa[v] = u;
+        if(!in_q[v]) {
           q.push(v);
-          inqueue[v] = true;
-          cnt[v]++;
-          if (cnt[v] > n) return false;  // negative cycle
+          in_q[v] = 1;
+          ++cnt[v];
+          if(cnt[v] > n){ start = v;  break; }
         }
       }
     }
   }
-  return true;
+  if(start == -1) return 0;
+  else{  // Si se necesita reconstruir
+    forn(_, n) start = pa[start];
+    vi cycle{start}; 
+    int v = start;  
+    while(pa[v] != start) v = pa[v], cycle.pb(v);
+    cycle.pb(start); // solo si se necesita que vuelva al start
+    reverse(all(cycle));
+    return 1;
+  }
 }

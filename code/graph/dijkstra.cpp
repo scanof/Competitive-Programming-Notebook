@@ -2,17 +2,14 @@
 vector <ii> g[nax];
 int d[nax], p[nax];
 void dijkstra(int s, int n){
-  forn(i,n) d[i] = inf, p[i] = -1;
-  priority_queue <ii, vector <ii>,greater<ii> > q;
+  forn(i, n) d[i] = inf, p[i] = -1;
   d[s] = 0;
-  q.push(ii(0, s));
-  int dist, u, v, w;
+  priority_queue <ii, vector <ii>,greater<ii> > q;
+  q.push({0, s});
   while(sz(q)){
-    tie(dist, u) = q.top();
-    q.pop();
-    if (dist > d[u]) continue;
-    for (ii e: g[u]){
-      tie(v,w) = e;
+    auto [dist, u] = q.top();  q.pop();
+    if(dist > d[u]) continue;
+    for(auto& [v, w]: g[u]){
       if (d[u] + w < d[v]){
         d[v] = d[u] + w;
         p[v] = u;

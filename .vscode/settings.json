@@ -1,0 +1,33 @@
+{
+  "files.associations": {
+    "random": "cpp",
+    "*.tcc": "cpp",
+    "chrono": "cpp",
+    "regex": "cpp",
+    "vector": "cpp",
+    "any": "cpp",
+    "array": "cpp",
+    "forward_list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "memory": "cpp",
+    "optional": "cpp",
+    "string_view": "cpp",
+    "fstream": "cpp",
+    "future": "cpp",
+    "istream": "cpp",
+    "ostream": "cpp",
+    "shared_mutex": "cpp",
+    "sstream": "cpp",
+    "stop_token": "cpp",
+    "streambuf": "cpp",
+    "syncstream": "cpp",
+    "thread": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "valarray": "cpp",
+    "variant": "cpp",
+    "map": "cpp"
+  }
+}

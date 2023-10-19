@@ -1,22 +1,28 @@
-// O(E*V) list adjacency, O(V^3) matrix
 vector<ii> g[nax];
-int dist[nax];
-void bellman_ford(int s, int n){
-  forn(i,n) dist[i] = inf;
-  dist[s] = 0; int v, w;
-  forn(i,n-1){
-    forn(u,n){
-      for(ii e : g[u]){
-        tie(v,w) = e;
-        dist[v] = min(dist[v], dist[u] + w);
-      }
+ll dist[nax];
+bool bellman_ford(int s, int n){
+  forn(i, n) dist[i] = inf;
+  dist[s] = 0;
+  forn(_, n-1){
+    forn(u, n){
+      if(dist[u] == inf) continue; // Unreachable
+      for(auto& [v, w] : g[u])
+        if(dist[u] + w < dist[v]) dist[v] = dist[u] + w, pa[v] = u;
     }
   }
-  bool negcycle= false;
-  forn(u,n){
-    for(ii e: g[u]){
-      tie(v,w) = e;
-      if (dist[v] > dist[u] + w) negcycle = true;
-    }
+  int start = -1;
+  forn(u, n){
+    if(dist[u] == inf) continue;  // Unreachable
+    for(auto& [v, w] : g[u]) if(dist[u] + w < dist[v]) start = v;
+  }
+  if(start == -1) return 0;
+  else{  // Si se necesita reconstruir
+    forn(_, n) start = pa[start];
+    vi cycle{start}; 
+    int v = start;  
+    while(pa[v] != start) v = pa[v], cycle.pb(v);
+    cycle.pb(start); // solo si se necesita que vuelva al start
+    reverse(all(cycle));
+    return 1;
   }
 }

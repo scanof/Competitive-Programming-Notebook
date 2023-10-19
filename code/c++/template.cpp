@@ -20,10 +20,13 @@ using namespace std;
 typedef long long ll;
 typedef double ld;
 typedef pair<int,int> ii;
-typedef pair<char,int> pci;
-typedef tuple<int, int, int> tiii;
 typedef pair<ll,ll> pll;
+typedef tuple<int, int, int> tiii;
 typedef vector<int> vi;
+typedef vector<ii> vii;
+typedef vector<ll> vll;
+typedef vector<double> vd;
+
 
 const int inf = 1e9;
 const int nax = 1e5+200;
@@ -32,6 +35,10 @@ const ld eps= 1e-9;
 
 int dr[] = {1,-1,0, 0,1,-1,-1, 1};
 int dc[] = {0, 0,1,-1,1, 1,-1,-1};
+
+ostream& operator<<(ostream& os, const ii& pa) { // DEBUGGING
+  return os << "("<< pa.fi << ", " << pa.se << ")";
+}
 
 int main(){
   ios_base::sync_with_stdio(false);
