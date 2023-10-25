@@ -1,58 +1,47 @@
-// Complexity O(V^3) maximiza
-const int nax = 300;
-const int inf = 1e9;
-struct KM {
-  int W[nax][nax], n;
-	int mx[nax], my[nax]; // match arr
-	int lx[nax], ly[nax]; // label arrMAXN
-	int x[nax], y[nax]; // used arr
-	int hungary(int nd) {
-    int i;
-    x[nd] = 1;
-    forn(i,n)
-      if(y[i] == 0 && W[nd][i] == lx[nd]+ly[i]) {
-        y[i] = 1;
-        if(my[i] == -1 || hungary(my[i])) {
-          my[i] = nd;
-          return 1;
+const ld inf = 1e18; // To Maximize set "inf" to 0, and negate costs
+inline bool zero(ld x){ return x == 0; } // For Integer/LL --> change to x == 0
+struct Hungarian{
+  int n; vector<vd> c;
+  vi l, r, p, sn;  vd ds, u, v;
+  Hungarian(int n): n(n), c(n, vd(n, inf)), l(n, -1), r(n, -1), p(n), sn(n), ds(n), u(n), v(n){}
+  void set_cost(){ forn(i, n) forn(j, n) cin >> c[i][j]; }
+	ld assign() {
+    set_cost();
+		forn(i, n) u[i] = *min_element(all(c[i]));
+		forn(j, n){ 
+      v[j] = c[0][j] - u[0]; 
+      for1(i, n-1) v[j] = min(v[j], c[i][j] - u[i]);
+    }
+		int mat = 0;
+		forn(i, n) forn(j, n) if(r[j] == -1 && zero(c[i][j] - u[i]  -v[j])){
+      l[i] = j,  r[j] = i, ++mat; break;
+    }
+		for(; mat < n; ++mat){
+      int s = 0, j = 0, i;
+      while(l[s] != -1) ++s;
+      forn(k, n) ds[k] = c[s][k] - u[s] - v[k];
+      fill(all(p), -1),  fill(all(sn), 0);
+      while(1){
+        j = -1;
+        forn(k, n) if(!sn[k] && (j == -1 || ds[k] < ds[j])) j = k;
+        sn[j] = 1,  i = r[j];
+        if(i == -1) break;
+        forn(k, n) if(!sn[k]){
+          auto n_ds = ds[j] + c[i][k] - u[i] - v[k];
+          if(ds[k] > n_ds) ds[k] = n_ds,  p[k] = j;
         }
       }
-    return 0;
+      forn(k, n) if(k != j && sn[k]){
+        auto dif = ds[k] - ds[j];
+        v[k] += dif, u[r[k]] -= dif;
+      } 
+      u[s] += ds[j];
+      while(p[j] >= 0) r[j] = r[p[j]],  l[r[j]] = j,  j = p[j];
+      r[j] = s,  l[s] = j;
+		}
+		ld val = 0;
+    forn(i, n) val += c[i][l[i]];
+		return val;
 	}
-	int run() {
-    int k, d;
-    memset(mx, -1, sizeof(mx));
-    memset(my, -1, sizeof(my));
-    forn(i,n)
-      lx[i] = 0, ly[i] = 0;
-    forn(i,n)
-      forn(j,n)
-        lx[i] = max( lx[i] ,W[i][j]);
-    forn(i,n) {
-      while(1) {
-        memset(x, 0, sizeof(x));
-        memset(y, 0, sizeof(y));
-        if(hungary(i))  break;
-        d = inf;
-        forn(j,n) {
-          if(x[j]) {
-            forn(k,n)
-              if(!y[k])
-                d = min(d,lx[j]+ly[k]-W[j][k]);
-          }
-        }
-        if(d == inf)  break;
-        forn(j,n) {
-          if(x[j])    lx[j] -= d;
-          if(y[j])    ly[j] += d;
-        }
-      }
-    }
-    int res = 0;
-    forn(i,n) {
-      if(my[i] != -1)
-        res += W[my[i]][i];
-    }
-    return res;
-	}
-} km;
+  void print_assignment(){ forn(i, n) cout << i+1 << " " << l[i]+1 << el; }
+};
