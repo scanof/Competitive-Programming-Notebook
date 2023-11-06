@@ -1,4 +1,3 @@
-#include "../c++/template.cpp"
 const int N = 1e5 + 10;
 int t[N << 2], lazy[N << 2];
 struct stree{
@@ -11,6 +10,14 @@ struct stree{
       t[(v << 1) | 1] += lazy[v];  lazy[(v << 1) | 1] += lazy[v];
       lazy[v] = 0;
     }
+  }
+  void build(int v, int tl, int tr, vi& a){
+    if(tl == tr){
+      t[v] = a[tl]; return;
+    }
+    int tm = (tl + tr) >> 1;
+    build(v << 1, tl, tm, a), build((v << 1) | 1, tm+1, tr, a);
+    t[v] = oper(t[v << 1], t[(v << 1) | 1]);
   }
   void upd(int v, int tl, int tr){
     if(tl > r || tr < l) return;
