@@ -11,9 +11,8 @@
 #define el '\n'
 #define d(x) cout<< #x<< " " << x<<el
 #define ri(n) scanf("%d",&n)
-#define sz(v) ((int)v.size())
+#define sz(v) int(v.size())
 #define all(v) v.begin(),v.end()
-#define allr(v) v.rbegin(),v.rend()
 
 using namespace std;
 
@@ -21,11 +20,11 @@ typedef long long ll;
 typedef double ld;
 typedef pair<int,int> ii;
 typedef pair<ll,ll> pll;
-typedef tuple<int, int, int> tiii;
+typedef tuple<int, int, int> iii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 typedef vector<ll> vll;
-typedef vector<double> vd;
+typedef vector<ld> vd;
 
 
 const int inf = 1e9;
