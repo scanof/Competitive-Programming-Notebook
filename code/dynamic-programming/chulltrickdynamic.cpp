@@ -37,4 +37,4 @@ struct CHT : public multiset<line> {
 		line l = *lower_bound(line{x, is_query});
 		return l.m*x + l.b;
 	}
-};x
+};
