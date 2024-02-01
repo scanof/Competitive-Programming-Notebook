@@ -42,3 +42,4 @@ struct stree{
     l = ql, r = qr, val = qval, upd(1, 0, n-1); }
   int query(int ql, int qr){ l = ql, r = qr;  return query(1, 0, n-1); }
 };
+
