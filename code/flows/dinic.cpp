@@ -1,3 +1,10 @@
+// Corte minimo: vertices con dist[v]>=0 (del lado de src) VS.  dist[v]==-1 (del lado del dst)
+// Para el caso de la red de Bipartite Matching (Sean V1 y V2 los conjuntos mas proximos a src y dst respectivamente):
+// Reconstruir matching: para todo v1 en V1 ver las aristas a vertices de V2 con it->f>0, es arista del Matching
+// Min Vertex Cover: vertices de V1 con dist[v]==-1 + vertices de V2 con dist[v]>0
+// Max Independent Set: tomar los vertices NO tomados por el Min Vertex Cover
+// Max Clique: construir la red de G complemento (debe ser bipartito!) y encontrar un Max Independet Set
+// Min Edge Cover: tomar las aristas del matching + para todo vertices no cubierto hasta el momento, tomar cualquier arista de el
 // Complexity O(V^2*E)
 const ll inf = 1e18;
 struct edge {
