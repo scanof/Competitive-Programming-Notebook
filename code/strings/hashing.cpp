@@ -16,9 +16,9 @@ ii base[N]{ONE};
 void prepare() { for1(i, N-1) base[i] = base[i-1] * BASE; }
 template <class type>
 struct hashing {   /// HACELEEE PREPAREEEE!!!
-  vii ha;
+  vii ha;       // ha[i] = t[i]*p0 + t[i+1]*p1 + t[i+2]*p2 + ..
   hashing(type &t): ha(sz(t)+1, ZERO){
-    for1(i, sz(t)) ha[i] = ha[i-1] * BASE + ii{t[i-1], t[i-1]};
+    for(int i = sz(t) - 1; i >= 0; --i) ha[i] = ha[i+1] * BASE + ii{t[i], t[i]};
   }
-  ii query(int l, int r){ return ha[r+1] - ha[l] * base[r-l+1]; } //[l,r]
+  ii query(int l, int r){ return ha[l] - ha[r+1] * base[r-l+1]; } //[l,r]
 };

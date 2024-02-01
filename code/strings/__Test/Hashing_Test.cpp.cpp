@@ -32,11 +32,11 @@ ii base[N]{ONE};
 void prepare() { for1(i, N-1) base[i] = base[i-1] * BASE; }
 template <class type>
 struct hashing {   /// HACELEEE PREPAREEEE!!!
-  vii ha;
+  vii ha;       // ha[i] = t[i]*p0 + t[i+1]*p1 + t[i+2]*p2 + ..
   hashing(type &t): ha(sz(t)+1, ZERO){
-    for1(i, sz(t)) ha[i] = ha[i-1] * BASE + ii{t[i-1], t[i-1]};
+    for(int i = sz(t) - 1; i >= 0; --i) ha[i] = ha[i+1] * BASE + ii{t[i], t[i]};
   }
-  ii query(int l, int r){ return ha[r+1] - ha[l] * base[r-l+1]; } // [l,r]
+  ii query(int l, int r){ return ha[l] - ha[r+1] * base[r-l+1]; } //[l,r]
 };
 
 int main(){
@@ -61,15 +61,16 @@ int main(){
       int ans = 0;
       for(auto& [szs, st]: hashes){
         if(szs > sz(s)) break;
-        string t = s.substr(0, szs);
+        string t = s.substr(sz(s) - szs, szs);
         auto ch = hashing(t).query(0, szs-1);
         ans += st.count(!ch);
         
-        int r = szs;
-        while(r < sz(s)){
-          ch = ch - (ii{s[r-szs], s[r-szs]} * base[szs-1]);
-          ch = ch*BASE + ii{s[r], s[r++]};
+        int r = sz(s) - szs - 1;
+        while(r >= 0){
+          ch = ch - ii{s[r + szs], s[r + szs]} * base[szs - 1];
+          ch = ch * BASE + ii{s[r], s[r]};
           ans += st.count(!ch);
+          --r;
         }
       }
       cout << ans << endl;
