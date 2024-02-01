@@ -3,6 +3,9 @@ int t[N << 2], lazy[N << 2];
 struct stree{
   int n, l, r, val, neutro = 0;
   stree(int n): n(n){ forn(i, n << 2) t[i] = lazy[i] = 0; }
+  stree(vector<int> &a){ n = sz(a); forn(i, n << 2) t[i] = lazy[i] = 0;
+    build(1, 0, n-1, a);
+  }
   inline int oper(int a, int b){ return a > b ? a : b; }
   inline void push(int v){
     if(lazy[v]){
