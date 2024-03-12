@@ -1,21 +1,18 @@
-// O (V*E)
-vi g[nax], seen, match;
-int Aug(int l) {                 // return 1 if an augmenting path is found
-  if (seen[l]) return 0;      // return 0 otherwise
-  seen[l] = 1;
-  for (int r: g[l])
-    if (match[r] == -1 || Aug(match[r])){
-      match[r] = l; return 1;                           // found 1 matching
-    }
-  return 0;                                                  // no matching
+// O (V*E) 
+//Sacado del Vasito
+vector<int> g[MAXN]; // [0,n)->[0,m)
+int n,m;
+int mat[MAXM];bool vis[MAXN];
+int match(int x){
+	if(vis[x])return 0;
+	vis[x]=true;
+	for(int y:g[x])if(mat[y]<0||match(mat[y])){mat[y]=x;return 1;}
+	return 0;
 }
-
-int MCBM(int n, int vleft){
-  int ans = 0;
-  match.assign(n, -1);    // V is the number of vertices in bipartite graph
-  forn(l,vleft) {         // vleft : vi with indices of vertices
-    seen.assign(n, 0);                    // reset before each recursion
-    ans += Aug(l);
-  }
-  return ans;
+vector<pair<int,int> > max_matching(){
+	vector<pair<int,int> > r;
+	memset(mat,-1,sizeof(mat));
+	fore(i,0,n)memset(vis,false,sizeof(vis)),match(i);
+	fore(i,0,m)if(mat[i]>=0)r.pb({mat[i],i});
+	return r;
 }
