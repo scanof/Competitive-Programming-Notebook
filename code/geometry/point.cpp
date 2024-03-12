@@ -40,10 +40,14 @@ struct pt{
   bool in_disk(pt p, pt q){ return (p - *this) * (q - *this) <= 0; }
   bool on_segment(pt p, pt q){ return side(p, q) == 0 && in_disk(p, q); }
 };
+int sgn(ld x){
+  if(x < 0) return -1;
+  return x == 0 ? 0 : 1;
+}
 void segment_intersection(pt a, pt b, pt c, pt d, vector<pt>& out){ // AB y CD
   ld sa = a.side(c, d), sb = b.side(c, d);
-  ld sc = c.side(a, b), sd = d.side(a, b);
-  if(sa*sb < 0 && sc*sd < 0) out.pb((a*sb - b*sa) / (sb-sa)); // proper cut
+  ld sc = c.side(a, b), sd = d.side(a, b);            // proper cut
+  if(sgn(sa)*sgn(sb) < 0 && sgn(sc)*sgn(sd) < 0) out.pb((a*sb - b*sa) / (sb-sa)); 
   for(pt p : {c, d}) if(p.on_segment(a, b)) out.pb(p);
   for(pt p : {a, b}) if(p.on_segment(c, d)) out.pb(p);
 }
