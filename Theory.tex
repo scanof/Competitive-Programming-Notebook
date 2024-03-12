@@ -673,3 +673,17 @@ $(p \land q) \lor (r \land s) \equiv (p \lor r) \land (p \lor s) \land (q \lor r
 \item Number of divisors of $n!$ The answer is $\prod_{j=1}^m (e_j +1)$
 \item Sum of divisors of $n!$ The answer is  $\prod_{j=1}^m \frac{p_j^{e_j+1}-1}{e_j-1}$  \\
 \end{itemize}
+
+\Topic{Max Flow with Demands} Max Flow with Lower bounds of flow for each edge
+\begin{itemize}
+\item feasible flow in a network with both upper and lower capacity constraints, no source or sink: capacities are changed to upper bound — lower bound. Add a new source and a sink. let M[v] = (sum of lower bounds of ingoing edges to v) — (sum of lower bounds of outgoing edges from v). For all v, if M[v]>0 then add edge (S,v) with capacity M, otherwise add (v,T) with capacity -M. If all outgoing edges from S are full, then a feasible flow exists, it is the flow plus the original lower bounds.
+maximum flow in a network with both upper and lower capacity constraints, with source s and sink t: add edge (t,s) with capacity infinity. Binary search for the lower bound, check whether a feasible exists for a network WITHOUT source or sink (B).
+\end{itemize}
+
+\Topic{Pick's Theorem}
+\begin{itemize}
+  \item $A = i+\frac{b}{2}-1$
+  \item $A:$ area of the polygon.
+  \item $i:$ number of interior integer points.
+  \item $b:$ number of integer points on the boundary.
+\end{itemize}
