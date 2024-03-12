@@ -3,7 +3,6 @@
 # Subsections within a section should follow the format:
 #   [filename within code directory][tab character \t][subsection title]
 
-
 [C++]
 c++/template.cpp	C++ template
 c++/alternativa.cpp	Opcion
@@ -20,9 +19,10 @@ strings/Manacher.cpp	Manacher Algorithm
 strings/minimum_expression.cpp	Minimum Expression
 strings/trie.cpp	Trie
 strings/suffix_array.cpp	Suffix Array
-strings/aho.cpp	Aho-Corasick
+strings/aho_corasick.cpp	Aho-Corasick
 strings/suffix_automaton.cpp	Suffix Automaton
 strings/palindromic_tree.cpp	Palindromic Tree
+strings/suffix_tree.cpp	Suffix Tree
 
 [Graph algorithms]
 graph/articulationpointandbridge.cpp	Articulation Points and Bridges
@@ -38,6 +38,7 @@ graph/spfa.cpp	Shortest Path Faster Algorithm
 graph/floyd_warshall.cpp	Floyd-Warshall
 graph/LCA_binarylifting.cpp	LCA Binary Lifting
 graph/2sat.cpp	2 SAT
+graph/2satkosarajuytarjan.cpp	2 SAT Kosaraju y Tarjan
 graph/centroid_decomposition.cpp	Centroid Decomposition
 graph/tree_binarization.cpp	Tree Binarization
 graph/eulerian_path.cpp	Eulerian Path
@@ -62,8 +63,7 @@ data-structures/seg_treerecursivo.cpp	Segment Tree
 data-structures/seg_tree_lazy_prop.cpp	ST Lazy Propagation
 data-structures/seg_tree_persistent.cpp	Persistent ST 
 data-structures/seg_tree_2d_iterativo.cpp	Segtree 2D
-#data-structures/seg_tree_iterativo.cpp	Segtree iterativo
-data-structures/RSQ.cpp	RSQ
+data-structures/seg_tree_iterativo.cpp	Segtree iterativo
 data-structures/RMQ.cpp	RMQ
 data-structures/sack.cpp	Sack
 data-structures/hld.cpp	Heavy Light Decomposition
@@ -72,6 +72,8 @@ data-structures/implicit_treap.cpp	Implicit Treap
 data-structures/implicit_treap_father.cpp	Implicit Treap Father
 data-structures/ordered_set.cpp	Ordered Set
 data-structures/mos_algo.cpp	Mo's Algorithm
+data-structures/dynamic_connectivity.cpp	Dynamic Connectivity
+data-structures/link_cut_tree.cpp	Link Cut Tree
 
 [Math]
 math/sieve_eratosthenes.cpp	Sieve of Eratosthenes
@@ -95,6 +97,10 @@ math/simplex.cpp	Simplex
 math/gaussjordan.cpp	Gauss Jordan
 math/gaussjordan_modular.cpp	Gauss Jordan Modular
 math/berlekamp_massey.cpp	Berlekamp Massey
+math/lagrange_interpolation.cpp	Lagrange Interpolation
+math/discrete_log.cpp	Discrete Log
+math/frac.cpp	Fractions
+math/mint.cpp	Modular Int
 
 [Dynamic Programming]
 dynamic-programming/edit_distance.cpp	Edit Distance
@@ -108,20 +114,15 @@ dynamic-programming/chulltrick.cpp	Convex Hull Trick
 dynamic-programming/chulltrickdynamic.cpp	CH Trick Dynamic
 
 [Geometry]
-geometry/point.h	Point
-geometry/line.h	Line
-geometry/convex_hull.h	Convex Hull
-geometry/polygon.h	Polygon
-geometry/circle.h	Circle
-geometry/radial_order.h	Radial Order
-geometry/coords.h	Coords
-geometry/plane.h	Plane
-geometry/halfplane.h	Halfplane
-geometry/sph.h	Sphere
-geometry/polih.h	Polih
-geometry/ln3.h	Line3
-geometry/p3.h	Point3
-geometry/plane3.h	Plane3
+geometry/point.cpp	Point
+geometry/line.cpp	Line
+geometry/convex_hull.cpp	Convex Hull
+geometry/polygon.cpp	Polygon
+geometry/circle.cpp	Circle
+geometry/radial_order.cpp	Radial Order
+geometry/halfplane.cpp	Halfplane
+geometry/KDTree.cpp	KD Tree
+geometry/minkowski_sum.cpp	Minkowski Sum
 
 [Miscellaneous]
 miscellaneous/counting_sort.cpp	Counting Sort
