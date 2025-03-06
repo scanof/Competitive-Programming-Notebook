@@ -13,7 +13,7 @@ int prim(int n){
   int total = 0, u, w;
   while (sz(pq)){
     ii e = pq.top(); pq.pop();
-    tie(w,v) = e; w*=-1;
+    tie(w,u) = e; w*=-1;
     if (!seen[u])
       total += w, process(u);
   }
