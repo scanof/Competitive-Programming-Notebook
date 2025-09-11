@@ -1,6 +1,6 @@
 const int eps = 0, mod = 1e9+7;
-
-int gauss(vector<vi> &a, vi &ans) {
+// a := matriz n x (m+1)  , la ultima columna es b, en el sistema Ax = b 
+int gauss(vector<vi> &a, vi &x) { 
   int n = sz(a), m = sz(a[0]) - 1;
   vi where(m, -1);
   for(int col=0, row=0; col<m && row<n; ++col) {
@@ -21,13 +21,13 @@ int gauss(vector<vi> &a, vi &ans) {
     ++row;
   }
 
-  ans.assign(m, 0);
+  x.assign(m, 0);
   forn(i,m){
-    if(where[i] != -1) ans[i] = 1LL*a[where[i]][m] * inv(a[where[i]][i])%mod;
+    if(where[i] != -1) x[i] = 1LL*a[where[i]][m] * inv(a[where[i]][i])%mod;
   }
   forn(i,n){
     ll sum = 0;
-    forn(j,m) sum = (sum + 1LL*ans[j] * a[i][j])%mod;
+    forn(j,m) sum = (sum + 1LL*x[j] * a[i][j])%mod;
     if(abs(sum - a[i][m]) > eps) return 0;
   }
 

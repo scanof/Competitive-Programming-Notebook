@@ -1,4 +1,5 @@
-int gauss(vector<vector<double>> &a, vector<double> &ans) {
+// a := matriz n x (m+1)  , la ultima columna es b, en el sistema Ax = b 
+int gauss(vector<vector<double>> &a, vector<double> &x) {
   int n = sz(a), m = sz(a[0]) - 1;
   vi where(m, -1);
   for(int col=0, row=0; col<m && row<n; ++col) {
@@ -19,13 +20,13 @@ int gauss(vector<vector<double>> &a, vector<double> &ans) {
     ++row;
   }
 
-  ans.assign(m, 0);
+  x.assign(m, 0);
   forn(i,m){
-    if(where[i] != -1) ans[i] = a[where[i]][m] / a[where[i]][i];
+    if(where[i] != -1) x[i] = a[where[i]][m] / a[where[i]][i];
   }
   forn(i,n){
     double sum = 0;
-    forn(j,m) sum += ans[j] * a[i][j];
+    forn(j,m) sum += x[j] * a[i][j];
     if(abs(sum - a[i][m]) > eps) return 0;
   }
 
