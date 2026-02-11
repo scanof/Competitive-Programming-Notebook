@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Option 1
 for(int len= 0; len<n; ++len){
     for(int l= 0; l<n-len; ++l){

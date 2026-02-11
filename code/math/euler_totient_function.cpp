@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int phi(int n) { // O(sqrt(n))
   if(n==1) return 0;
   int ans = n;

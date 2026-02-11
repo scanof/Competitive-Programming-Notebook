@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complejidad O(n^3)
 int dist[nax][nax];
 void floyd(){

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // O(n)
 // pr contains prime numbers
 // lp[i] == i if i is prime

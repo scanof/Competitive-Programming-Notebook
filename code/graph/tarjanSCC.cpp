@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vi low, num, comp, g[nax];
 int scc, timer;
 stack<int> st;

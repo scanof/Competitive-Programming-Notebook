@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vi g[nax];
 int son[nax], bro[nax];
 void binarize(int u, int p = -1){

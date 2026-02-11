@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // O(mod)
 const int mod;
 int inv[mod];

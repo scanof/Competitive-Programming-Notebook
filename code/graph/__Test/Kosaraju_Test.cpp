@@ -1,23 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/894/E
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i < n; ++i)
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) v.size()
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << ": " << x <<  el;
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef long long ll;
-typedef vector<ll> vll;
-typedef pair<int,int> ii;
-typedef vector<ii> vii;
-
 const int N = 1e6 + 10, mx = 1e8;
 
 int n, m;

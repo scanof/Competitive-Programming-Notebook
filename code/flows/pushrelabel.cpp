@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(V^2 * sqrt(E)) o O(V^3)
 const ll inf = 1e17;
 struct PushRelabel{

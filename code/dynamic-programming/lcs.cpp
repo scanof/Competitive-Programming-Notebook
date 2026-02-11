@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int nax = 1005;
 int dp[nax][nax];
 int lcs(const string &s, const string &t){

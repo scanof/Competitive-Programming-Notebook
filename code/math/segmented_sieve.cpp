@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O((R-L+1)*log(log(R)) + sqrt(R)*log(log(R)))
 // R-L+1 roughly 1e7  R-- 1e12
 vector<bool> segmentedSieve(ll L, ll R) {

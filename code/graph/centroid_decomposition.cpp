@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int cnt[nax], depth[nax], f[nax], dist[25][nax];
 vi g[nax];
 int dfs(int u, int dep = -1, bool flag = 0, int dis = 0, int p = -1) {

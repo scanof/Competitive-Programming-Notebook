@@ -1,19 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/104713/problem/K
-#include <bits/stdc++.h>
-using namespace std;
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define fi first
-#define se second
-#define el '\n'
-#define d(x) cout << #x << " : " << x<< el;
-
-typedef pair<int, int> ii;
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<ii> vii;
-
 struct Node { // Splay tree. Root's pp contains tree's parent.
   Node *p = 0, *pp = 0, *c[2] = {0, 0};
   bool flip = 0;

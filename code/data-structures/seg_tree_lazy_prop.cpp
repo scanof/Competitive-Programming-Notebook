@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int N = 1e5 + 10;
 int t[N << 2], lazy[N << 2];
 struct stree{

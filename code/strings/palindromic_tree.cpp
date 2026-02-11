@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct palindromic_tree{
   static const int SIGMA = 26;
   struct node{

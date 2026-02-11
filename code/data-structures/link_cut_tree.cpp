@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct Node { // Splay tree. Root's pp contains tree's parent.
   Node *p = 0, *pp = 0, *c[2] = {0, 0};
   bool flip = 0;

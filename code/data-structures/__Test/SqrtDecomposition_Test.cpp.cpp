@@ -1,23 +1,4 @@
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i < n; ++i)
-#define for1(i,n) for(int i=1; i <= n; ++i)
-#define fore(i,l,r) for(int i=l; i <= r; ++i)
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) int(v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << ": " << x <<  el;
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef long long ll;
-typedef vector<ll> vll;
-typedef pair<int,int> ii;
-typedef vector<ii> vii;
+#include "../../template.h"
 
 struct sqrt_decomp{
   int n, len;  vi a, b;

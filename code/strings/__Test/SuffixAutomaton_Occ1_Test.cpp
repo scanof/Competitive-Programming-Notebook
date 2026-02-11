@@ -1,27 +1,11 @@
+#include "../../template.h"
+
 // https://www.spoj.com/problems/NSUBSTR/
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define for1(i,n) for(int i=1; i<=n; ++i)
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) int(v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << " : " << x << el;
-
-using namespace std;
-
-typedef long long ll;
-typedef vector<int> vi;
-typedef pair<int,int> ii;
-
 struct node { 
   int len, link;
   array<int, 26> to; 
 };
-const int N = 4e5 + 10; // el doble del MAXN
+const int N = 4e5 + 10; // el doble del nax
 node st[N];
 int sz, last, occ[N], F[N]; 
 // occ[V] = sz(end_pos[V]) : # ocurrencias de substrs de nodo V en S

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity: V + E
 // Given an undirected graph
 int n, timer, tin[nax], low[nax];

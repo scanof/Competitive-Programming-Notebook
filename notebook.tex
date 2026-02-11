@@ -1,11 +1,12 @@
 \documentclass[8pt]{article}
-\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage[a4paper,landscape,left=0.3cm,right=0.3cm,top=1cm,bottom=0.3cm,headheight=12pt,headsep=4pt]{geometry}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{ifthen}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{tocloft}
-\usepackage{pdflscape}
 \usepackage{multicol}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
@@ -29,9 +30,11 @@
 \lstdefinestyle{shared}{
     belowcaptionskip=1\baselineskip,
     breaklines=true,
-    xleftmargin=\parindent,
+    xleftmargin=0pt,
     showstringspaces=false,
-    basicstyle=\fontsize{10}{6}\ttfamily,
+    basicstyle=\fontsize{8}{5}\ttfamily,
+    aboveskip=0pt,
+    belowskip=0pt,
 }
 \lstdefinestyle{cpp}{
 	style=shared,
@@ -63,33 +66,50 @@
 \lstset{escapechar=@}
 
 
-\title{\vspace{-4ex}\Large{Fast and Fourier ICPC Team Notebook}}
+\title{\vspace{-4ex}\Large{Que bendición ICPC Team Notebook}}
 \author{}
 \date{}
 
+% Configure headers
+\fancyhf{}
+\fancyhead[L]{Que bendición - EAFIT University}
+\fancyhead[C]{%
+  \ifthenelse{\equal{\firstleftmark}{\lastleftmark}}%
+    {\leftmark}%
+    {\firstleftmark\ \& \lastleftmark}%
+}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Customize section marks to include section number
+\renewcommand{\sectionmark}[1]{\markboth{\thesection. #1}{}}
+
 \begin{document}
-\begin{landscape}
+\pagestyle{fancy}
 \setlength{\columnseprule}{0.4pt}
-\setlength{\columnsep}{40pt}
-\begin{multicols}{2}
+\setlength{\columnsep}{10pt}
+\begin{multicols}{3}
 \maketitle
 \vspace{-13ex}
 \tableofcontents
-\pagestyle{fancy}
-
-\input contents.tex
-
 \end{multicols}
-\pagebreak
+
+\setlength{\columnsep}{10pt}
+\begin{multicols}{3}
+\input{contents.tex}
+\end{multicols}
+
 \setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{10pt}
 \begin{multicols}{2}
+{\fontsize{8}{6}\selectfont
 \input Theory.tex
+}
 \end{multicols}
 
 \pagebreak
 
 
 
-\end{landscape}
 \end{document}
 

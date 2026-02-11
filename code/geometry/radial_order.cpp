@@ -1,3 +1,5 @@
+#include "../template.h"
+
 typedef double ld;
 struct pt{
   ld x, y; 

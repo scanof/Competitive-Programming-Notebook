@@ -1,14 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/321/E
-#include <bits/stdc++.h>
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define for1(i,n) for(int i=1; i<=n; ++i)
-#define fore(i,l,r) for(int i=l; i<=r; ++i)
-#define d(x) cout << #x << " : " << x<< endl;
-
-using namespace std;
-
-typedef long long ll;
-
 const int N = 4e3 + 20, K = 801, inf = 2e9;
 int C[N][N], c[N][N], dp[K][N], n;  // C[l][r], cost of cutting the interval [l, r]
 

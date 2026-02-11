@@ -1,31 +1,20 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/gymProblem/102028/D
-#include <bits/stdc++.h>
-
-#define fi first
-#define se second
-#define el '\n'
-#define pb push_back
-#define forn(i,n) for(int i = 0; i < n; ++i)
-#define all(v) v.begin(), v.end()
-#define d(x) cout << #x << " " << x << el;
-
-using namespace std;
-
-typedef double ld;
 const ld pi = acos(-1), inf = 1000000000;
 struct pt {  
-	ld x, y;
-	pt(){}
-	pt(ld x, ld y): x(x), y(y){}
-	pt operator+(pt p){return pt(x+p.x, y+p.y);}
-	pt operator-(pt p){return pt(x-p.x, y-p.y);}
-	pt operator*(ld t){return pt(x*t, y*t);}
-	pt operator/(ld t){return pt(x/t, y/t);}
-	
-	ld norm2(){return *this**this;}
-	ld norm(){return sqrt(norm2());}
-	ld operator*(pt p){return x*p.x + y*p.y;}
-	ld operator%(pt p){return x*p.y - y*p.x;}
+  ld x, y;
+  pt(){}
+  pt(ld x, ld y): x(x), y(y){}
+  pt operator+(pt p){return pt(x+p.x, y+p.y);}
+  pt operator-(pt p){return pt(x-p.x, y-p.y);}
+  pt operator*(ld t){return pt(x*t, y*t);}
+  pt operator/(ld t){return pt(x/t, y/t);}
+  
+  ld norm2(){return *this**this;}
+  ld norm(){return sqrt(norm2());}
+  ld operator*(pt p){return x*p.x + y*p.y;}
+  ld operator%(pt p){return x*p.y - y*p.x;}
   // C is: >0 on L, ==0 on AB, <0 on R
   ld side(pt p, pt q){ return (q-p) % (*this-p); }
   // In interval [0, pi]
@@ -37,7 +26,7 @@ struct pt {
   bool in_angle(pt a, pt b, pt c, bool CW=1){ 
     return angle(a, b, CW) <= c.angle(a, b, CW);}
   pt rotate(pt r){return pt(*this % r, *this * r);}
-	pt rotate(ld a){return rotate(pt(sin(a), cos(a)));}
+  pt rotate(ld a){return rotate(pt(sin(a), cos(a)));}
 };
 
 int main(){

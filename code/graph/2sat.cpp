@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(V+E)
 int N;
 vi low, num, comp, g[nax];

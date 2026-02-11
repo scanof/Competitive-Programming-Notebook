@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct dsu{
   vi p, r; int comp;
   dsu(int n): p(n), r(n, 1), comp(n){iota(all(p), 0);}

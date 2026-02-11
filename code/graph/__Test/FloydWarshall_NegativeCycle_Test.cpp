@@ -1,12 +1,6 @@
+#include "../../template.h"
+
 // https://open.kattis.com/problems/allpairspath
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define d(x) cout << #x << " : " << x << el;
-#define el '\n'
-
-using namespace std;
-
 const int N = 151, Q = 1001, inf = 1e9;
 int d[N][N];
 

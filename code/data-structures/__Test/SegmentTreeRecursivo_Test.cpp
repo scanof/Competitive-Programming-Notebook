@@ -1,12 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/contest/1860/problem/C
-#include <bits/stdc++.h>
-
-#define sz(v) ((int)v.size())
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-
-using namespace std;
-
-typedef vector<int> vi;
 struct stree{
   int neutro = 1e9, n, l, r, pos, val;  vi t;
   stree(int n): n(n), t(n << 2){}

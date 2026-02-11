@@ -1,3 +1,5 @@
+#include "../template.h"
+
 double ternary_search(double l, double r) {
   while (r - l > eps) {
     double m1 = l + (r - l) / 3;

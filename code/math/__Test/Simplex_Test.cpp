@@ -1,19 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/103443/problem/C
-#include <bits/stdc++.h>
-#define forn(i,n) for(int i=0; i<n; i++)
-#define el '\n'
-#define fi first
-#define se second
-#define sz(v) int(v.size())
-#define d(x) cout << #x << " : " << x << el;
-#define all(v) v.begin(),v.end()
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef double ld;
-typedef vector<ld> vd;
-
 const ld eps = 1e-9, inf = 1e18;
 
 vi X, Y;

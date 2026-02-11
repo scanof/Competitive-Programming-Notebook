@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vector<int> g[nax];
 int len[nax], dep[nax], in[nax], out[nax], head[nax], par[nax], idx;
 void dfs_sz( int u, int d ) {

@@ -1,17 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/contest/869/problem/E
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define fored(i,l,r) for(int i=r; i>=l; --i)
-#define el '\n'
-#define sz(v) int(v.size())
-
-using namespace std;
-
-typedef  long long ll;
-typedef vector<ll> vll;
-typedef vector<int> vi;
-
 const int N = 2500 + 1;
 ll st[2*N][2*N];
 struct stree{

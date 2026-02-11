@@ -1,27 +1,12 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/235/C
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) int(v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << " : " << x << el;
-
-using namespace std;
-
-typedef long long ll;
-typedef vector<int> vi;
-typedef pair<int,int> ii;
-
 struct node { 
   int len, link;
   array<int, 26> to; 
 };
 
-const int N = 2e6+1; // el doble del MAXN
+const int N = 2e6+1; // el doble del nax
 node st[N];
 int sz, last, cnt[N], seen[N], idx; 
 // cnt[V] = sz(end_pos[V]) : # occ de substrs de nodo V en S

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int eps = 0, mod = 1e9+7;
 
 int gauss(vector<vi> &a, vi &ans) {

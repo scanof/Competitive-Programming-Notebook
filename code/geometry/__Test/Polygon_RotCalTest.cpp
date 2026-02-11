@@ -1,23 +1,6 @@
+#include "../../template.h"
+
 // https://matcomgrader.com/problem/9598/colors-ii/
-#include <bits/stdc++.h>
-
-#define fi first
-#define se second
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define for1(i,n) for(int i=1; i<= (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-#define pb push_back
-#define el '\n'
-#define d(x) cout<< #x<< " " << x<<el
-#define ri(n) scanf("%d",&n)
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-
-using namespace std;
-
-typedef long long ld;
-typedef vector<int> vi;
 const ld pi = acos(-1), eps = 0;
 const int inf = 1e9, mod = 998244353;
 

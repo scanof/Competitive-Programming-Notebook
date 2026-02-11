@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int N=1000000,    // maximum possible number of nodes in suffix tree
     INF=1000000000; // infinity constant
 string a;       // input string for which the suffix tree is being built

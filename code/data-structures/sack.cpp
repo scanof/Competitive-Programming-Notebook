@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Time Complexity O(N*log(N))
 int timer;
 int cnt[nax], big[nax], fr[nax], to[nax], who[nax];

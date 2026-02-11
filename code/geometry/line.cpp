@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Add point.cpp Basic operators
 struct line{
   pt v;  ld c;
@@ -20,7 +22,7 @@ struct line{
   ld dist2(pt p){ return side(p) * side(p) / double(v.norm2()); } 
   
   bool operator==(line l){ return *this / l && c == l.c; }
-	ld angle(line l){ return v.min_angle(l.v); }   ///angle bet. 2 lines
+  ld angle(line l){ return v.min_angle(l.v); }   ///angle bet. 2 lines
   line perp_at(pt p) { return {p, p + v.perp() }; }
   line translate(pt t) { return {v, c + (v % t)}; }
   line shift_left(ld dist){ return {v, c + dist * v.norm()}; }

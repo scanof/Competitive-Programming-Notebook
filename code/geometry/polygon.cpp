@@ -1,19 +1,21 @@
+#include "../template.h"
+
 #include "line.cpp"
 #include "circle.cpp"
 #include "convex_hull.cpp"
 int sgn(double x){return x<-eps?-1:x>eps;}
 struct poly {
-	int n, normal = -1; vector<pt> p;
-	poly(){}
-	poly(const vector<pt>& p): p(p), n(sz(p)){}
+  int n, normal = -1; vector<pt> p;
+  poly(){}
+  poly(const vector<pt>& p): p(p), n(sz(p)){}
 
-	double area(){
-		double r=0.;
-		forn(i, n) r += p[i] % p[(i+1)%n];
-		return abs(r)/2; // negative if CW, positive if CCW
-	}
+  double area(){
+    double r=0.;
+    forn(i, n) r += p[i] % p[(i+1)%n];
+    return abs(r)/2; // negative if CW, positive if CCW
+  }
 
-	bool isConvex() {
+  bool isConvex() {
     bool pos=false, neg=false;
     forn(i, n) {
       int s = p[(i+2)%n].side(p[i], p[(i+1)%n]);
@@ -23,29 +25,29 @@ struct poly {
     return !(pos && neg);
   }
 
-	pt centroid(){ // (barycenter)
-		pt r(0,0); double t=0;        ///REVISAR
-		forn(i,n){
-			r = r+(p[i]+p[(i+1)%n])*(p[i]%p[(i+1)%n]);
-			t += p[i]%p[(i+1)%n];
-		}
-		return r/t/3;
-	}
+  pt centroid(){ // (barycenter)
+    pt r(0,0); double t=0;        ///REVISAR
+    forn(i,n){
+      r = r+(p[i]+p[(i+1)%n])*(p[i]%p[(i+1)%n]);
+      t += p[i]%p[(i+1)%n];
+    }
+    return r/t/3;
+  }
 
-	bool has(pt q){ /// O(n)
-		forn(i, n) if(q.on_segment(p[i], p[(i+1) % n])) return true;
-		int cnt = 0;
-		forn(i, n){
-			int j = (i+1)%n;
-			int k = sgn((q - p[j]) % (p[i] - p[j]));
-			int u = sgn(p[i].y - q.y), v = sgn(p[j].y - q.y);
-			if(k > 0 && u < 0 && v >= 0) ++cnt;
-			if(k < 0 && v < 0 && u >= 0) --cnt;
-		}
-		return cnt!=0;
-	}
+  bool has(pt q){ /// O(n)
+    forn(i, n) if(q.on_segment(p[i], p[(i+1) % n])) return true;
+    int cnt = 0;
+    forn(i, n){
+      int j = (i+1)%n;
+      int k = sgn((q - p[j]) % (p[i] - p[j]));
+      int u = sgn(p[i].y - q.y), v = sgn(p[j].y - q.y);
+      if(k > 0 && u < 0 && v >= 0) ++cnt;
+      if(k < 0 && v < 0 && u >= 0) --cnt;
+    }
+    return cnt!=0;
+  }
   // ------------ HAS_LOG ------------ //
-	void remove_col(){ // helper 
+  void remove_col(){ // helper 
     vector<pt> s;
     forn(i, n) if(!p[i].on_segment(p[(i-1+n) % n], p[(i+1) % n])) s.pb(p[i]);
     p.swap(s);  n = sz(p);
@@ -70,57 +72,57 @@ struct poly {
     return !q.left(p[l], p[l+1]);
   }
   // ------------ FARTHEST------------ //
-	pt farthest(pt v){ /// O(log(n)) only CONVEX
-		if(n < 10){
-			int k=0;
-			for1(i,n-1) if(v*(p[i]-p[k]) > eps) k=i;
-			return p[k];
-		}
-		if(n == sz(p)) p.pb(p[0]);
-		pt a = p[1]-p[0];
-		int s=0, e=n, ua=v*a>eps;
-		if(!ua && v*(p[n-1]-p[0]) <= eps) return p[0];
-		while(1){
-			int m = (s+e)/2; pt c=p[m+1]-p[m];
-			int uc = v*c> eps;
-			if(!uc && v*(p[m-1]-p[m]) <= eps) return p[m];
-			if(ua && (!uc||v*(p[s]-p[m]) > eps))e=m;
-			else if(ua || uc || v*(p[s]-p[m]) >= -eps) s=m, a=c, ua=uc;
-			else e=m;
-			assert(e>s+1);
-		}
-	}
+  pt farthest(pt v){ /// O(log(n)) only CONVEX
+    if(n < 10){
+      int k=0;
+      for1(i,n-1) if(v*(p[i]-p[k]) > eps) k=i;
+      return p[k];
+    }
+    if(n == sz(p)) p.pb(p[0]);
+    pt a = p[1]-p[0];
+    int s=0, e=n, ua=v*a>eps;
+    if(!ua && v*(p[n-1]-p[0]) <= eps) return p[0];
+    while(1){
+      int m = (s+e)/2; pt c=p[m+1]-p[m];
+      int uc = v*c> eps;
+      if(!uc && v*(p[m-1]-p[m]) <= eps) return p[m];
+      if(ua && (!uc||v*(p[s]-p[m]) > eps))e=m;
+      else if(ua || uc || v*(p[s]-p[m]) >= -eps) s=m, a=c, ua=uc;
+      else e=m;
+      assert(e>s+1);
+    }
+  }
 
-	poly cut(line l){   // cut CONVEX polygon by line l
-		vector<pt> q;  // returns part at left of l.pq
-		forn(i, n) {
-			int d0 = sgn(l.side(p[i])), d1 = sgn(l.side(p[(i+1) % n]));
-			if(d0 >= 0) q.pb(p[i]);
-			line m(p[i], p[(i+1) % n]);
-			if(d0*d1 < 0 && !(l / m)) q.pb(l ^ m);
-		}
-		return poly(q);
-	}
-	ld intercircle(circle c){ /// area of intersection with circle
-		ld r = 0.;
-		forn(i,n){
-			int j = (i+1)%n; ld w = c.intertriangle(p[i], p[j]);
-			if((p[j]-c.o)%(p[i]-c.o) > 0) r+=w;
-			else r-=w;
-		}
-		return abs(r);
-	}
+  poly cut(line l){   // cut CONVEX polygon by line l
+    vector<pt> q;  // returns part at left of l.pq
+    forn(i, n) {
+      int d0 = sgn(l.side(p[i])), d1 = sgn(l.side(p[(i+1) % n]));
+      if(d0 >= 0) q.pb(p[i]);
+      line m(p[i], p[(i+1) % n]);
+      if(d0*d1 < 0 && !(l / m)) q.pb(l ^ m);
+    }
+    return poly(q);
+  }
+  ld intercircle(circle c){ /// area of intersection with circle
+    ld r = 0.;
+    forn(i,n){
+      int j = (i+1)%n; ld w = c.intertriangle(p[i], p[j]);
+      if((p[j]-c.o)%(p[i]-c.o) > 0) r+=w;
+      else r-=w;
+    }
+    return abs(r);
+  }
 
-	ld callipers(){ // square distance: pair of most distant points
-		ld r=0;     // prereq: convex, ccw, NO COLLINEAR POINTS
-		for(int i=0,j=n<2?0:1; i<j; ++i){
-			for(;;j=(j+1)%n){
-				r = max(r,(p[i]-p[j]).norm2());
-				if((p[(i+1)%n]-p[i])%(p[(j+1)%n]-p[j]) <= eps) break;
-			}
-		}
-		return r;
-	}
+  ld callipers(){ // square distance: pair of most distant points
+    ld r=0;     // prereq: convex, ccw, NO COLLINEAR POINTS
+    for(int i=0,j=n<2?0:1; i<j; ++i){
+      for(;;j=(j+1)%n){
+        r = max(r,(p[i]-p[j]).norm2());
+        if((p[(i+1)%n]-p[i])%(p[(j+1)%n]-p[j]) <= eps) break;
+      }
+    }
+    return r;
+  }
 };
 
 // / max_dist between 2 points (pa, pb) of 2 Convex polygons (a, b)

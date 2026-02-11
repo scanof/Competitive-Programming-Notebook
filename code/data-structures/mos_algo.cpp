@@ -1,3 +1,5 @@
+#include "../template.h"
+
 /// Complexity: O(|N+Q|*sqrt(|N|)*|ADD/DEL|)
 /// Requires add(), delete() and get_ans()
 struct query {

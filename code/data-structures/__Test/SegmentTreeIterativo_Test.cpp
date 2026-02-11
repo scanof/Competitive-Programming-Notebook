@@ -1,14 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/contest/1860/problem/C
-#include <bits/stdc++.h>
-
-#define sz(v) ((int)v.size())
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-
-using namespace std;
-
-typedef vector<int> vi;
-
 const int N = 3e5;  // limit for array size
 int t[2 * N];
 struct stree{ 

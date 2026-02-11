@@ -1,3 +1,5 @@
+#include "../template.h"
+
 //Complexity O(E * log V)
 vector<ii> g[nax];
 bool seen[nax];

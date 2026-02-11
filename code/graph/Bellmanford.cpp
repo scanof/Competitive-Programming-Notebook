@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vector<ii> g[nax];
 ll dist[nax];
 bool bellman_ford(int s, int n){

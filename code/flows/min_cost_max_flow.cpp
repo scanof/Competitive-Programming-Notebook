@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const ll inf = 1e18;
 struct edge{
   int to, rev; ll cap, cos, f{0};

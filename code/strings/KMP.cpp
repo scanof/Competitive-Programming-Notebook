@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vi get_phi(string &s) { // O(|s|)
   int j = 0, n = sz(s); vi pi(n);
   for1(i,n-1){
@@ -34,15 +36,16 @@ void kmp_aut(string &p) {
 }
 
 /// Automaton
-int wh[nax+2][MAXC];	//wh[i][j] = a donde vuelvo si estoy en i y pongo una j
+const int MAXC = 26;
+int wh[nax+2][MAXC];  //wh[i][j] = a donde vuelvo si estoy en i y pongo una j
 void build(string &s){
-	int lps=0;
-	wh[0][s[0]-'a'] = 1;
-	fore(i,1,sz(s)){
-		fore(j,0,MAXC-1) wh[i][j]=wh[lps][j];
-		if(i<sz(s)){
-			wh[i][s[i]-'a'] = i+1;
-			lps = wh[lps][s[i]-'a'];
-		}
-	}
+  int lps=0;
+  wh[0][s[0]-'a'] = 1;
+  fore(i,1,sz(s)){
+    fore(j,0,MAXC-1) wh[i][j]=wh[lps][j];
+    if(i<sz(s)){
+      wh[i][s[i]-'a'] = i+1;
+      lps = wh[lps][s[i]-'a'];
+    }
+  }
 }

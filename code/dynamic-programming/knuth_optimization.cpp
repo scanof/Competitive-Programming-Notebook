@@ -1,7 +1,9 @@
+#include "../template.h"
+
 const int nax = 1e3+20;
-const ll inf = LONG_LONG_MAX;
+const ll inf = 1e18;
 ll dp[nax][nax];
-int k[nax][nax];
+int k[nax][nax], n;
 int C[nax][nax];  // puede depender de k
 
 int main(){

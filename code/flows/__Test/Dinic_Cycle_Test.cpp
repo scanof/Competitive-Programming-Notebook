@@ -1,30 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/103185/problem/H
-#include <bits/stdc++.h>
-
-#define fi first
-#define se second
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define for1(i,n) for(int i=1; i<= (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-#define pb push_back
-#define el '\n'
-#define d(x) cout<< #x<< " " << x<<el
-#define ri(n) scanf("%d",&n)
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-#define allr(v) v.rbegin(),v.rend()
-
-using namespace std;
-
-typedef long long ll;
-typedef long double ld;
-typedef pair<int,int> ii;
-typedef pair<ll,ll> pll;
-typedef tuple<int,int,int> iii;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-
 const ld pi = acos(-1), eps = 1e-8;
 const int mod = 998244353;
 

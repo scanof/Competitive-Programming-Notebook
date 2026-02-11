@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // f = 1 para pares, 0 impar
 //a a a a a a
 //1 2 3 3 2 1   f = 0 impar

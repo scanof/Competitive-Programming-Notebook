@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const ll inf = 1e18;
 const int nax = 1e3+20, kax = 20;
 
@@ -16,7 +18,7 @@ void compute(int k, int l, int r, int optl, int optr){
   compute(k,mid+1, r, opt, optr);
 }
 
-inside main(){
-  fore(k,1,K) // definir el caso base k = 0.
+int main(){
+  fore(k,1,kax) // definir el caso base k = 0.
     compute(k,0,n-1,0,n-1);
 }

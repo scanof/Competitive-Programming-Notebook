@@ -1,19 +1,6 @@
+#include "../../template.h"
+
 // https://open.kattis.com/problems/bigbrother
-#include <bits/stdc++.h>
-
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout<< #x<< " " << x<<el
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-
-using namespace std;
-
-typedef double ld;
 const ld eps = 1e-7, inf = 1e12;
 struct pt {  // for 3D add z coordinate
   ld x, y;

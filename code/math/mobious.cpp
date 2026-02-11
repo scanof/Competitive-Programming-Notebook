@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int mu[nax], f[nax], h[nax];
 void pre(){
   mu[0] = 0; mu[1] = 1;

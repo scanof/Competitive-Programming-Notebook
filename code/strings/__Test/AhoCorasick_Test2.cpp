@@ -1,16 +1,6 @@
-// https://codeforces.com/problemset/problem/710/F
-#include <bits/stdc++.h>
- 
-#define forn(i,n) for(int i = 0; i < n; ++i)
-#define sz(v) int(v.size())
-#define pb push_back
-#define el '\n'
- 
-using namespace std;
- 
-typedef vector<int> vi;
-typedef long double ll;
+#include "../../template.h"
 
+// https://codeforces.com/problemset/problem/710/F
 vector<string> st[2]; 
 const static int N = 1e5 + 11, alpha = 26;
 int to[2][20][N][alpha], fail[2][20][N], end_w[2][20][N], cnt_w[2][20][N], fail_out[2][20][N];

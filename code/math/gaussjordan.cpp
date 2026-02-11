@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int gauss(vector<vector<double>> &a, vector<double> &ans) {
   int n = sz(a), m = sz(a[0]) - 1;
   vi where(m, -1);

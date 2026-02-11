@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complejidad n log n
 int lis(const vi &a) {
   int n = a.size();

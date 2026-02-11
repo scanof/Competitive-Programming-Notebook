@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int N = 1e5 + 10, K = 20;  //K  has to satisfy K> log nax + 1
 ll st[N][K];
 struct RMQ{

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct custom_hash {
     static ll splitmix64(ll x) {
         // http://xorshift.di.unimi.it/splitmix64.c

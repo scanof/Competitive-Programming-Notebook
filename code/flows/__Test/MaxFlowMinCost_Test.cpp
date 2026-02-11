@@ -1,24 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/104614/problem/L
-#include <bits/stdc++.h>
-using namespace std;
-
-#define fi first 
-#define se second
-#define forn(i,n) for(int i=0; i<n; i++)
-#define fore(i,l,r) for(int i=l; i<=r; i++)
-#define el '\n'
-#define pb push_back
-#define sz(v) int(v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << " : " << x << el;
-
-
-typedef pair<int,int> ii;
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef vector<ll> vll;
-
 const int N = 101;
 
 const ll inf = 1e18;

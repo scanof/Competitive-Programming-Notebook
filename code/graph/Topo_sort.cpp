@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vi g[nax], ts;
 bool seen[nax];
 void dfs(int u){

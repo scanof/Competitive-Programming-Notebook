@@ -1,19 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/710/F
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i = 0; i < n; ++i)
-#define for1(i,n) for(int i = 1; i <= n; ++i)
-#define sz(v) int(v.size())
-#define fi first
-#define se second
-#define el '\n'
-
-using namespace std;
-
-typedef pair<int, int> ii;
-typedef vector<ii> vii;
-typedef long long ll;
-
 /// 1000234999, 1000567999, 1000111997, 1000777121, 999727999, 1070777777
 const int MOD[] = { 1001864327, 1001265673 }, N = 3e5;
 const ii BASE(257, 367), ZERO(0, 0), ONE(1, 1);

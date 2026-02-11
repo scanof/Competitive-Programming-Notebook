@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const static int N = 2e6, alpha = 26, B = 30; // MAX: abecedario, bits
 int to[N][alpha], cnt[N], sz;
 inline int conv(char ch){ return ch - 'a'; }  //  CAMBIAR

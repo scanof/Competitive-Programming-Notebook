@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(log_k (n))
 // If k is prime
 int fact_pow (int n, int k) {

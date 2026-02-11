@@ -1,28 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/group/Ohoz9kAFjS/contest/266572/problem/B
-#include <bits/stdc++.h>
-
-#define fi first
-#define se second
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define for1(i,n) for(int i=1; i<= (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-#define pb push_back
-#define el '\n'
-#define d(x) cout<< #x<< " " << x<<el
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-
-using namespace std;
-
-typedef long long ll;
-typedef long double ld;
-typedef pair<int,int> ii;
-typedef pair<ll,ll> pll;
-typedef tuple<int,int,int> iii;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-
 // Corte minimo: vertices con dist[v]>=0 (del lado de src) VS.  dist[v]==-1 (del lado del dst)
 // Para el caso de la red de Bipartite Matching (Sean V1 y V2 los conjuntos mas proximos a src y dst respectivamente):
 // Reconstruir matching: para todo v1 en V1 ver las aristas a vertices de V2 con it->f>0, es arista del Matching

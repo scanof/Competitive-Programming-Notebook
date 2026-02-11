@@ -5,7 +5,6 @@
 
 [C++]
 c++/template.cpp	C++ template
-c++/alternativa.cpp	Opcion
 c++/bits.cpp	Bits Manipulation
 c++/random.cpp	Random
 c++/custom_hash.cpp	Custom Hash
@@ -32,7 +31,6 @@ graph/kosaraju.cpp	Kosaraju: Strongly connected components
 graph/tarjanSCC.cpp	Tarjan: Strongly connected components
 graph/mst_kruskal.cpp	MST Kruskal
 graph/mst_prim.cpp	MST Prim
-graph/dijkstra.cpp	Dijkstra
 graph/Bellmanford.cpp	Bellman-Ford
 graph/spfa.cpp	Shortest Path Faster Algorithm
 graph/floyd_warshall.cpp	Floyd-Warshall
@@ -51,7 +49,6 @@ flows/konig.cpp	Konig
 flows/maxbipmatching.cpp	MCBM Augmenting Algorithm
 flows/hungarian.cpp	Hungarian Algorithm
 flows/min_cost_max_flow.cpp	Min-Cost Max-Flow Algorithm
-flows/min_cost_max_flow_marcos.cpp	Min-Cost Max-Flow Algorithm 2
 flows/blossom.cpp	Blossom
 
 [Data Structures]

@@ -1,26 +1,6 @@
+#include "../../template.h"
+
 // https://open.kattis.com/problems/joiningflows
-#include <bits/stdc++.h>
-
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout<< #x<< " " << x<<el
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define for1(i,n) for(int i=1; i<= (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-
-using namespace std;
-
-typedef long long ll;
-typedef pair<int,int> ii;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<ii> vii;
-
 const int inf = 1e9, mod = 1e9+7, N = 1e6 + 10;
 int t[10], a[10], b[10];
 

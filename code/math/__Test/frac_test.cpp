@@ -1,20 +1,6 @@
+#include "../../template.h"
+
 // https://algo.sk/br24/problem.php?problem=d2-avgavg
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i < n; ++i)
-#define for1(i,n) for(int i=1; i <= n; ++i)
-#define fore(i,l,r) for(int i=l; i <= r; ++i)
-#define el '\n'
-#define sz(v) int(v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout <<#x << " : " << x << el;
-
-using namespace std;
-
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-
 struct frac{
   ll num, den;
   frac(){}

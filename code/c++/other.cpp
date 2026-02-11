@@ -1,3 +1,5 @@
+#include "../template.h"
+
 #pragma GCC optimize("O3")
 //(UNCOMMENT WHEN HAVING LOTS OF RECURSIONS)\
 #pragma comment(linker, "/stack:200000000")
@@ -7,8 +9,8 @@
 
 // Custom comparator for set/map
 struct comp {
-	bool operator()(const double& a, const double& b) const {
-		return a+EPS<b;}
+  bool operator()(const double& a, const double& b) const {
+    return a+EPS<b;}
 };
 set<double,comp> w; // or map<double,int,comp>
 

@@ -1,16 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/contest/295/problem/B
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define el '\n'
-#define d(x) cout << #x << " : " << x << el;
-
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef long long ll;
-
 const int N = 501;
 const ll inf = 1e18;
 

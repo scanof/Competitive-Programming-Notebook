@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(V*E^2)
 const ll inf = 1e18;
 

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // O(|s|)
 vi z_function(string &s){
   int n = s.size();

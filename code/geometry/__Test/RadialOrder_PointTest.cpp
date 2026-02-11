@@ -1,18 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/104114/problem/B
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define fored(i,l,r) for(int i=r; i>=l; --i)
-#define sz(v) int(v.size())
-#define el '\n'
-#define pb push_back
-#define all(v) v.begin(),v.end()
-#define d(x) cout << #x << " : " << x << el;
-
-using namespace std;
-
-typedef long long ld;
-
 struct pt{
   ld x, y;
   pt(){}

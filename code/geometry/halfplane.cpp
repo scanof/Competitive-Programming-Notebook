@@ -1,3 +1,5 @@
+#include "../template.h"
+
 typedef double ld;
 const ld eps = 1e-7, inf = 1e12;
 struct pt {  // for 3D add z coordinate
@@ -17,7 +19,9 @@ struct halfplane {
   halfplane(pt p, pt q): p(p), v(q - p), c(v % p), angle(atan2(v.y, v.x)){}
   bool operator<(halfplane b)const{ return angle < b.angle; }
   bool operator/(halfplane l){ return abs(v % l.v) <= eps; } // 2D
-  pt operator^(halfplane l){ return *this / l ? pt(inf, inf) : (l.v*c - v*l.c) / (v % l.v);}
+  pt operator^(halfplane l){ 
+    return *this / l ? pt(inf, inf) : (l.v*c - v*l.c) / (v % l.v);
+  }
   bool out(pt q){ return v % q < c; } // try < c-eps
 };
 

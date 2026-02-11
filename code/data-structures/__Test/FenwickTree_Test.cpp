@@ -1,16 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/597/C
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i < n; ++i)
-#define for1(i,n) for(int i=1; i <= n; ++i)
-#define el '\n'
-
-using namespace std;
-
-typedef vector<int> vi;
-typedef long long ll;
-typedef vector<ll> vll;
-
 struct fwtree{ // 0-indexed
   int n;  vll bit;
   fwtree(int n): n(n), bit(n+1){}

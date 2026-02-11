@@ -1,15 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/104505/problem/A
-#include <bits/stdc++.h>
-using namespace std;
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define for1(i,n) for(int i=1; i<=n; ++i)
-#define fore(i,l,r) for(int i=l; i<=r; ++i)
-#define fored(i,l,r) for(int i=r; i>=l; --i)
-#define el '\n'
-#define sz(v) int(v.size())
-
-typedef long long ll;
 const int mod = 1e9 + 7;
 template <class T>
 T bpow(T b, int e) {

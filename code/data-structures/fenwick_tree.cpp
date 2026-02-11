@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct fwtree{ // 0-indexed
   int n;  vi bit;
   fwtree(int n): n(n), bit(n+1){}

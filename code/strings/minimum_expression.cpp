@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int minExp(string &t) {
   int i = 0, j = 1, k = 0, n = sz(t), x, y;
   while (i < n && j < n && k < n) {

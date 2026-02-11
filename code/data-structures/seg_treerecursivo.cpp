@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct stree{
   int neutro = 1e9, n, l, r, pos, val;  vi t;
   stree(int n): n(n), t(n << 2){}

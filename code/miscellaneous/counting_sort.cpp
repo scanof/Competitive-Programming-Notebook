@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // it suppose that every element is non-negative 
 // in other case just translate to the right the elements  
 void counting_sort(vi &a){ 

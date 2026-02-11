@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct frac{
   ll num, den;
   frac(){}

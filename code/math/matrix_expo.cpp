@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct matrix{ // define N
   int r, c, m[N][N];
   matrix(int r, int c):r(r),c(c){

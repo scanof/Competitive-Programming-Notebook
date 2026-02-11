@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int L = 24;
 int timer, up[nax][L+1], n;
 int in[nax], out[nax];

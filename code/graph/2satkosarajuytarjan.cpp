@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(V+E)
 // KOSARAJU
 int N, scc;

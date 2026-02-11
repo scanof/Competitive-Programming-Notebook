@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // O ((V+E)*log V)
 vector <ii> g[nax];
 int d[nax], p[nax];

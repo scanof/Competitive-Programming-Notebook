@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Declare random number generator
 mt19937_64 rng(0); // 64 bit, seed = 0
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count()); // 32 bit

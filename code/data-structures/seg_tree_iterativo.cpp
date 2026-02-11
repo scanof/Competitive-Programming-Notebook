@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int N = 1e5;  // limit for array size
 int t[2 * N];
 struct stree{ 

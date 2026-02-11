@@ -1,3 +1,5 @@
+#include "../template.h"
+
 #include "../c++/template.cpp"
 vi X, Y;
 ld Z; 

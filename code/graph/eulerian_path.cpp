@@ -1,38 +1,40 @@
+#include "../template.h"
+
 int n;
 int edges = 0;
 int out[nax], in[nax];
 
 // Directed version (uncomment commented code for undirected)
 struct edge {
-	int v;
-//	list<edge>::iterator rev;
-	edge(int v):v(v){}
+  int v;
+//  list<edge>::iterator rev;
+  edge(int v):v(v){}
 };
 list<edge> g[nax];
 void add_edge(int a, int b){
   out[a]++;
   in[b]++;
-	++edges;
-	g[a].push_front(edge(b));//auto ia=g[a].begin();
-//	g[b].push_front(edge(a));auto ib=g[b].begin();
-//	ia->rev=ib;ib->rev=ia;
+  ++edges;
+  g[a].push_front(edge(b));//auto ia=g[a].begin();
+//  g[b].push_front(edge(a));auto ib=g[b].begin();
+//  ia->rev=ib;ib->rev=ia;
 }
 vi p;
 void go(int u){
-	while(sz(g[u])){
-		int v=g[u].front().v;
-		//g[v].erase(g[u].front().rev);
-		g[u].pop_front();
-		go(v);
-	}
-	p.push_back(u);
+  while(sz(g[u])){
+    int v=g[u].front().v;
+    //g[v].erase(g[u].front().rev);
+    g[u].pop_front();
+    go(v);
+  }
+  p.push_back(u);
 }
 
 vi get_path(int u){   
-	p.clear();
-	go(u);
-	reverse(all(p));
-	return p;
+  p.clear();
+  go(u);
+  reverse(all(p));
+  return p;
 }
 
 /// for undirected uncomment and check for path existance

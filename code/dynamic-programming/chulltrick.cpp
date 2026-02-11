@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct line {
   ll m, b;
   ll eval(ll x) { return m * x + b; }

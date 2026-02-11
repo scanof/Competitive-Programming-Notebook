@@ -1,18 +1,6 @@
+#include "../../template.h"
+
 //https://codeforces.com/group/DA7Y6pkafQ/contest/452264/problem/C
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i = 0; i < n; ++i)
-#define for1(i,n) for(int i = 1; i <= n; ++i)
-#define el '\n'
-#define all(v) v.begin(), v.end()
-#define pb push_back
-#define fi first
-#define se second
-
-using namespace std;
-
-typedef long long ll;
-
 struct pt{
   ll x, y; 
   pt(){}

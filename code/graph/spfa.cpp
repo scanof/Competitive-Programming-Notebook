@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(V*E) worst, O(E) on average.
 vector<ii> g[N];
 ll dist[N];

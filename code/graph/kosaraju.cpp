@@ -1,3 +1,5 @@
+#include "../template.h"
+
 vi g[nax], gr[nax], ts;
 bool seen[nax];
 int scc[nax], comp;

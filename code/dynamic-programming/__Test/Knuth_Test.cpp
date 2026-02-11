@@ -1,13 +1,6 @@
+#include "../../template.h"
+
 // https://www.spoj.com/problems/BRKSTRNG/
-#include <bits/stdc++.h>
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define for1(i,n) for(int i=1; i<=n; ++i)
-#define fore(i,l,r) for(int i=l; i<=r; ++i)
-
-using namespace std;
-
-typedef long long ll;
-
 const int N = 1e3+20;
 const ll inf = 1e18;
 ll dp[N][N];

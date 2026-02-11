@@ -1,22 +1,13 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/103388/problem/B
-#include <bits/stdc++.h>
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define el '\n'
-#define pb push_back
-#define sz(v) int(v.size())
-
-using namespace std;
-
-typedef vector<int> vi;
-
 struct node {
   int len, link;
   map<char, int> to;
   bool terminal;
 };
 
-const int N = 4e5+1; // el doble del MAXN
+const int N = 4e5+1; // el doble del nax
 node st[N];
 int sz, last;
 struct suf_aut{

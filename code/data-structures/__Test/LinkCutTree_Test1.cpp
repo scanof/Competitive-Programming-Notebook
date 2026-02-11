@@ -1,10 +1,6 @@
+#include "../../template.h"
+
 // https://www.spoj.com/problems/DYNACON1/
-#include <bits/stdc++.h>
-using namespace std;
-
-#define forn(i,n) for(int i=0; i<n; ++i)
-#define el '\n'
-
 struct Node { // Splay tree. Root's pp contains tree's parent.
   Node *p = 0, *pp = 0, *c[2] = {0, 0};
   bool flip = 0;

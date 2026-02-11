@@ -1,9 +1,11 @@
+#include "../template.h"
+
 struct pt{
   ld x, y;
   pt(){}
   pt(ld x, ld y): x(x), y(y){}
   bool operator<(pt p)const{ // for sort, convex hull/set/map
-		return x < p.x - eps || (abs(x - p.x) <= eps && y < p.y - eps); }
+    return x < p.x - eps || (abs(x - p.x) <= eps && y < p.y - eps); }
   pt operator-(pt p){return pt(x - p.x, y - p.y);}
   ld operator%(pt p){return x * p.y - y * p.x;}
   ld side(pt p, pt q){return (q - p) % (*this - p);}

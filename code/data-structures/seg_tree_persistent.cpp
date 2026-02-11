@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int len = 1e7, neutro = 1e9;
 struct node{ int mn, l, r; };
 struct stree{

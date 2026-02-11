@@ -1,27 +1,6 @@
+#include "../../template.h"
+
 // https://codeforces.com/gym/101889/attachments (A)
-#include <bits/stdc++.h>
-
-#define el '\n'
-#define fi first
-#define se second
-#define pb push_back
-#define sz(v) ((int)v.size())
-#define all(v) v.begin(),v.end()
-#define d(x) cout<< #x<< " " << x<<el
-#define forn(i,n) for(int i=0; i< (int)n; ++i)
-#define for1(i,n) for(int i=1; i<= (int)n; ++i)
-#define fore(i,l,r) for(int i=(int)l; i<= (int)r; ++i)
-#define fored(i,l,r) for(int i=(int)r; i>= (int)l; --i)
-
-using namespace std;
-
-typedef long long ll;
-typedef double ld;
-typedef pair<int,int> ii;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<ii> vii;
-
 const ld pi = acos(-1), eps = 1e-7;
 const int inf = 1e9, mod = 1e9+7, N = 14;
 
@@ -43,7 +22,7 @@ struct mink_sum{
     pol.reserve(sz(p) + sz(q));
     reorder(p),  reorder(q);
     forn(i, 2) p.pb(p[i]), q.pb(q[i]);
-	  int i = 0, j = 0;
+    int i = 0, j = 0;
     while(i+2 < sz(p) || j+2 < sz(q)){
       pol.pb(p[i] + q[j]);
       auto cro = (p[i+1] - p[i]) % (q[j+1] - q[j]);

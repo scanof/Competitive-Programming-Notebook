@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity O(N*2^N)
 const int N;
 int dp[1<<N][N+1];
@@ -7,14 +9,14 @@ int A[1<<N];
 // ith bit is OFF S(mask,i) = S(mask, i-1) + S(mask^(1<<i), i-1)
 //iterative version
 forn(mask,(1<<N)){
-	dp[mask][0] = A[mask];	//handle base case separately (leaf states)
-	forn(i,N){
-		if(mask & (1<<i))
-			dp[mask][i+1] = dp[mask][i] + dp[mask^(1<<i)][i];
-		else
-			dp[mask][i+1] = dp[mask][i];
-	}
-	F[mask] = dp[mask][N];
+  dp[mask][0] = A[mask];  //handle base case separately (leaf states)
+  forn(i,N){
+    if(mask & (1<<i))
+      dp[mask][i+1] = dp[mask][i] + dp[mask^(1<<i)][i];
+    else
+      dp[mask][i+1] = dp[mask][i];
+  }
+  F[mask] = dp[mask][N];
 }
 //memory optimized, super easy to code.
 forn(i,(1<<N)) F[i] = A[i];

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 #include "mint.cpp"
 const int N = 1e6;
 mint f[N], fr[N];

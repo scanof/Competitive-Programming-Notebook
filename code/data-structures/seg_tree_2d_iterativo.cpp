@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const int N = 2500 + 1;
 ll st[2*N][2*N];
 struct stree{

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int ans[grado1+grado2+1];
 
 forn(c,grado1+grado2+1) ans[c] = 0;

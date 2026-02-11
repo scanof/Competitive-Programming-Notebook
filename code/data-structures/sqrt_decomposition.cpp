@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // Complexity:      1. Preprocessing O(n) 
 // 2. Update O(1)   3. Query O(n/sqrt(n) + sqrt(n))
 struct sqrt_decomp{

@@ -1,3 +1,5 @@
+#include "../template.h"
+
 const static int N = 1e5+1, alpha = 26;
 int sz, to[N][alpha], fail[N], end_w[N], cnt_w[N], fail_out[N];
 inline int conv(char ch) { return  ch-'a'; }

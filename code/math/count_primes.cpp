@@ -1,3 +1,5 @@
+#include "../template.h"
+
 int count_primes(int n) {
   const int S = 10000;
   vector<int> primes;

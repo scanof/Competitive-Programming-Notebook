@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct edge{
   int u, v, w;
   edge(int u, int v, int w): u(u), v(v), w(w){}

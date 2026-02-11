@@ -1,3 +1,5 @@
+#include "../template.h"
+
 bool delim(char c) {
   return c == ' ';
 }

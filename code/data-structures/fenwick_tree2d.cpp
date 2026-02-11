@@ -1,3 +1,5 @@
+#include "../template.h"
+
 struct fwtree{ // 0-indexed
   int n, m;  vector<vll> bit;
   fwtree(){}

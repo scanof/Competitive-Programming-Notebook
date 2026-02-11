@@ -1,28 +1,18 @@
+#include "../../template.h"
+
 // https://codeforces.com/problemset/problem/793/C
-#include <bits/stdc++.h>
-
-#define el '\n'
-#define d(x) cout << #x << ": " << x << el;
-#define forn(i,n) for(int i=0; i < n; ++i)
-#define for1(i,n) for(int i=1; i <= n; ++i)
-#define sz(v) int(v.size())
-#define pb push_back
-
-using namespace std;
-
-typedef double ld;
 const int N = 1e5+10, mod = 1e9+7;
 struct pt{
-	ld x, y;
-	pt(){}
-	pt(ld x, ld y): x(x), y(y){}
+  ld x, y;
+  pt(){}
+  pt(ld x, ld y): x(x), y(y){}
   
   pt operator+(pt p){ return pt(x+p.x, y+p.y); }
-	pt operator-(pt p){ return pt(x-p.x, y-p.y); }
-	pt operator*(ld t){ return pt(x*t, y*t); }
-	pt operator/(ld t){ return pt(x/t, y/t); }
-	ld operator*(pt p){ return x*p.x + y*p.y; }
-	ld operator%(pt p){ return x*p.y - y*p.x; }
+  pt operator-(pt p){ return pt(x-p.x, y-p.y); }
+  pt operator*(ld t){ return pt(x*t, y*t); }
+  pt operator/(ld t){ return pt(x/t, y/t); }
+  ld operator*(pt p){ return x*p.x + y*p.y; }
+  ld operator%(pt p){ return x*p.y - y*p.x; }
 
   ld side(pt p, pt q){ return (q - p) % (*this - p);}
   bool in_disk(pt p, pt q){ return (p - *this) * (q - *this) <= 0; }

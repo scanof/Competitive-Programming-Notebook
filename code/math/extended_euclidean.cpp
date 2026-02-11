@@ -1,3 +1,5 @@
+#include "../template.h"
+
 // a*x+b*y = g
 ll gcde(ll a, ll b, ll& x, ll& y) {
   x = 1, y = 0;
