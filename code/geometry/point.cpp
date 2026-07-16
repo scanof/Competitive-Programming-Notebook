@@ -27,7 +27,7 @@ struct pt{
     return side(p, q) > eps; } // (change to >= -eps to accept collinear)
   // -------------- ANGLES -------------- //
   ld angle(){ return atan2(y, x); } // Angle from origin, in [-pi, pi]
-  ld min_angle(pt p){ return acos(*this*p / (norm()*p.norm())); } // In [0, pi]
+  ld min_angle(pt p){ return atan2(abs(*this % p), *this * p); } // In [0, pi]
   ld angle(pt a, pt b, bool CW){ // Angle< AB(*this) > in direction CW
     ld ma = (a - b).min_angle(*this - b);
     return side(a, b) * (CW ? -1 : 1) <= 0 ? ma : 2*pi - ma; }
