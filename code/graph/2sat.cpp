@@ -52,7 +52,7 @@ void make_eq(int x, int y){
   implies(x, y);
   implies(y, x);
 }
-void make_dif(int x, int y){
+void make_dif(int x, int y) {
+  implies(x, neg(y));
   implies(neg(x), y);
-  implies(neg(y), x);
 }
